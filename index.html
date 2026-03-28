@@ -41,12 +41,19 @@
         h1 {
             color: var(--primary-color);
             font-size: 2rem;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--accent-color);
+            font-weight: 700;
             margin-bottom: 10px;
         }
 
         .author {
             color: var(--secondary-color);
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 500;
         }
 
@@ -96,7 +103,6 @@
             color: #555;
         }
 
-        /* 과제 안내사항 스타일 */
         .notice-card {
             background: #fff5f5;
             padding: 30px;
@@ -136,6 +142,12 @@
             font-size: 1.2rem;
         }
 
+        .deadline-highlight {
+            color: var(--notice-color);
+            font-weight: 700;
+            text-decoration: underline;
+        }
+
         .notice-list li span {
             color: #555;
             font-weight: normal;
@@ -162,7 +174,8 @@
 <div class="container">
     <header>
         <h1>백석대학교 경건훈련1 소그룹2 토론 주제</h1>
-        <div class="author">제작자: 이재국 교수</div>
+        <div class="subtitle">5주차 수업</div>
+        <div class="author">이재국 교수</div>
     </header>
 
     <div class="discussion-list">
@@ -211,6 +224,7 @@
         <h3>&lt;과제 안내사항&gt;</h3>
         <ul class="notice-list">
             <li>나눔 보고서의 분량은 A4용지 절반 분량입니다.</li>
+            <li>제출 기한: <span class="deadline-highlight">5주차 수업이 끝나기 전까지</span></li>
             <li>주간반은 구글드라이브에 제출해주세요.</li>
             <li>온라인반은 사이버캠퍼스에서 (개인)과제 제출란에 제출해주세요.
                 <span>* 팀 토론 인증샷 제출은 별도입니다.</span>
