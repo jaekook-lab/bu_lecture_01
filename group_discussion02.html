@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>백석대학교 경건훈련1 소그룹 토론 주제</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #1a2a4a;
+      --gold: #b8973a;
+      --gold-light: #d4af5a;
+      --cream: #faf8f4;
+      --text: #2c2c2c;
+      --text-light: #5a5a5a;
+      --border: #ddd8cc;
+      --card-bg: #ffffff;
+    }
+
+    body {
+      background-color: var(--cream);
+      color: var(--text);
+      font-family: 'Noto Sans KR', sans-serif;
+      font-weight: 300;
+      line-height: 1.8;
+      min-height: 100vh;
+    }
+
+    /* ── Header ── */
+    header {
+      background-color: var(--navy);
+      padding: 3rem 2rem 2.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 60px,
+        rgba(255,255,255,0.015) 60px,
+        rgba(255,255,255,0.015) 61px
+      );
+      pointer-events: none;
+    }
+
+    .header-label {
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      color: var(--gold-light);
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      opacity: 0.9;
+    }
+
+    header h1 {
+      font-family: 'Noto Serif KR', serif;
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.4;
+      margin-bottom: 0.6rem;
+    }
+
+    .header-sub {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.55);
+      font-weight: 300;
+      letter-spacing: 0.05em;
+    }
+
+    .gold-bar {
+      width: 48px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      margin: 1.4rem auto 0;
+      border-radius: 2px;
+    }
+
+    /* ── Week badge ── */
+    .week-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: var(--navy);
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      padding: 0.3rem 1rem;
+      border-radius: 20px;
+      margin: 2rem auto 0;
+    }
+
+    /* ── Main ── */
+    main {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+
+    /* ── Intro ── */
+    .intro {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      border-left: 3px solid var(--gold);
+      padding: 0.8rem 1.2rem;
+      margin-bottom: 2.5rem;
+      background: rgba(184,151,58,0.05);
+      border-radius: 0 6px 6px 0;
+      line-height: 1.7;
+    }
+
+    /* ── Topic cards ── */
+    .topic-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.6rem;
+    }
+
+    .topic-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.8rem 2rem;
+      position: relative;
+      transition: box-shadow 0.2s;
+    }
+
+    .topic-card:hover {
+      box-shadow: 0 4px 20px rgba(26,42,74,0.08);
+    }
+
+    .topic-number {
+      position: absolute;
+      top: -1px;
+      left: 1.8rem;
+      background: var(--navy);
+      color: var(--gold-light);
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      padding: 0.25rem 0.75rem;
+      border-radius: 0 0 6px 6px;
+    }
+
+    .topic-keyword {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin: 1rem 0 0.8rem;
+    }
+
+    .topic-keyword span {
+      color: var(--gold);
+    }
+
+    .topic-question {
+      font-size: 0.9rem;
+      color: var(--text);
+      line-height: 1.85;
+      font-weight: 300;
+    }
+
+    /* ── Assignment box ── */
+    .assignment {
+      margin-top: 3rem;
+      background: var(--navy);
+      border-radius: 10px;
+      padding: 1.8rem 2rem;
+      color: rgba(255,255,255,0.85);
+    }
+
+    .assignment h3 {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      margin-bottom: 1rem;
+      letter-spacing: 0.05em;
+    }
+
+    .assignment ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .assignment ul li {
+      font-size: 0.85rem;
+      font-weight: 300;
+      padding-left: 1.1rem;
+      position: relative;
+      line-height: 1.7;
+    }
+
+    .assignment ul li::before {
+      content: '·';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.78rem;
+      color: var(--text-light);
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 540px) {
+      .topic-card { padding: 1.5rem 1.3rem; }
+      header { padding: 2.5rem 1.2rem 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <p class="header-label">Baekseok University · 경건훈련 1</p>
+  <h1>신학도가 갖추어야 할 것들<br>지성·덕성·영성</h1>
+  <p class="header-sub">소그룹 토론 주제 · 이재국 교수</p>
+  <div class="gold-bar"></div>
+  <div class="week-badge">7주차 수업</div>
+</header>
+
+<main>
+  <p class="intro">
+    아래 다섯 가지 질문 중 그룹의 상황에 맞는 주제를 선택하여 토론하십시오.
+    각자의 현재 삶과 훈련에 직접 대입하여 솔직하게 나누는 것이 중요합니다.
+  </p>
+
+  <div class="topic-list">
+
+    <div class="topic-card">
+      <div class="topic-number">질문 1</div>
+      <p class="topic-keyword"><span>지성과 영성의 긴장 관계</span></p>
+      <p class="topic-question">
+        강의안은 "영성을 강조하느라 지성적 노력을 게을리하면 해악을 끼친다"고 경고한다. 반면 현장에서는 "너무 지식에 치우친 목회자"에 대한 비판도 존재한다. 지금 나의 신학교 생활에서 지성과 영성 중 어느 쪽이 더 소홀해지고 있는가? 그 불균형을 어떻게 인식하고 교정하고 있는가?
+      </p>
+    </div>
+
+    <div class="topic-card">
+      <div class="topic-number">질문 2</div>
+      <p class="topic-keyword"><span>신학적 확신과 목회적 포용</span></p>
+      <p class="topic-question">
+        웨스트민스터 신앙고백서나 하이델베르크 요리문답 같은 신앙고백서에 근거한 이단 분별력을 갖추는 것이 중요하다고 했다. 실제로 성도나 지인이 신앙적으로 모호하거나 이단적인 가르침에 노출되었을 때, 나는 어떻게 반응하는가? 신학적 확신을 유지하면서도 상대를 배척하지 않으려면 어떤 태도와 언어가 필요한가?
+      </p>
+    </div>
+
+    <div class="topic-card">
+      <div class="topic-number">질문 3</div>
+      <p class="topic-keyword"><span>다중 지능과 소명</span></p>
+      <p class="topic-question">
+        목회 사역에는 지적 능력뿐 아니라 대인관계 지능, 자기이해 지능, 언어 지능 등 다양한 역량이 요구된다. 나는 이 중 어느 영역이 가장 약한가? 그 약점을 신학교 생활 안에서 어떻게 훈련하고 보완할 수 있는가?
+      </p>
+    </div>
+
+    <div class="topic-card">
+      <div class="topic-number">질문 4</div>
+      <p class="topic-keyword"><span>지성·덕성·영성의 통합 가능성</span></p>
+      <p class="topic-question">
+        강의안은 세 영역을 분리하여 설명하지만, 실제 삶과 사역에서 이 세 가지는 서로 어떻게 연결되고 통합되는가? 지금 나의 삶에서 세 영역 중 가장 취약한 부분은 어디이며, 그것을 강화하기 위해 오늘부터 실천할 수 있는 구체적인 한 가지는 무엇인가?
+      </p>
+    </div>
+
+    <div class="topic-card">
+      <div class="topic-number">질문 5</div>
+      <p class="topic-keyword"><span>자기반성</span></p>
+      <p class="topic-question">
+        강의안은 말씀의 거울로 자신을 냉철하게 돌아보는 자기반성을 목회자의 핵심 덕목으로 강조한다. 나는 현재 정기적으로 자신을 돌아보는 구체적인 습관이나 방식을 갖고 있는가? 그것이 없다면, 건강한 자기반성을 일상에 어떻게 구조화할 수 있는가?
+      </p>
+    </div>
+
+  </div>
+
+  <div class="assignment">
+    <h3>과제 안내사항</h3>
+    <ul>
+      <li>나눔 보고서의 전체 분량은 A4용지 절반 분량입니다. 모든 질문에 응답할 필요는 없습니다.</li>
+      <li>제출 기한: 7주차 토론이 끝나기 전까지</li>
+      <li>주간반은 차후 올릴 구글폼에 제출해주세요.</li>
+      <li>온라인반은 사이버캠퍼스 (개인)과제 제출란에 제출해주세요.</li>
+      <li>팀 토론 인증샷 제출은 별도입니다.</li>
+    </ul>
+  </div>
+</main>
+
+<footer>
+  © 2026 Baekseok University. Edited by Prof. Jaekook Lee.
+</footer>
+
+</body>
+</html>
