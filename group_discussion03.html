@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>신학생의 말씀 묵상 · 소그룹 토론</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:      #1B3A6B;
+      --navy-dark: #122848;
+      --gold:      #C9A84C;
+      --gold-light:#F5E9C9;
+      --bg:        #F7F8FC;
+      --white:     #FFFFFF;
+      --gray-1:    #2D2D2D;
+      --gray-2:    #555555;
+      --gray-3:    #999999;
+      --border:    #DDE0EA;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--gray-1);
+      font-family: 'Noto Sans KR', sans-serif;
+      font-weight: 300;
+      line-height: 1.8;
+      min-height: 100vh;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--navy);
+      color: var(--white);
+      padding: 0;
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 80% at 90% 50%, rgba(201,168,76,.10) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 60% at 10% 100%, rgba(255,255,255,.04) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .header-accent {
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--gold) 0%, #e8c97a 50%, var(--gold) 100%);
+    }
+    .header-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 52px 32px 48px;
+      position: relative;
+    }
+    .header-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+    .header-label span {
+      display: inline-block;
+      width: 28px;
+      height: 1px;
+      background: var(--gold);
+      opacity: .7;
+    }
+    h1 {
+      font-family: 'Noto Serif KR', serif;
+      font-size: clamp(1.55rem, 4vw, 2.1rem);
+      font-weight: 700;
+      line-height: 1.35;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+    .header-sub {
+      font-size: 13px;
+      color: rgba(255,255,255,.55);
+      margin-bottom: 28px;
+      letter-spacing: .03em;
+    }
+    .week-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(201,168,76,.18);
+      border: 1px solid rgba(201,168,76,.35);
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .1em;
+      padding: 6px 16px;
+      border-radius: 2px;
+    }
+
+    /* ── INTRO ── */
+    .intro {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 36px 32px 8px;
+    }
+    .intro p {
+      font-size: 14.5px;
+      color: var(--gray-2);
+      line-height: 1.85;
+      border-left: 3px solid var(--gold);
+      padding-left: 18px;
+    }
+
+    /* ── QUESTIONS ── */
+    .questions {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 28px 32px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(27,58,107,.06);
+      transition: box-shadow .2s ease, transform .2s ease;
+    }
+    .card:hover {
+      box-shadow: 0 6px 24px rgba(27,58,107,.11);
+      transform: translateY(-1px);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: stretch;
+      background: var(--navy);
+      min-height: 52px;
+    }
+    .card-num {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--gold);
+      color: var(--navy-dark);
+      font-family: 'Noto Serif KR', serif;
+      font-size: 17px;
+      font-weight: 700;
+      width: 52px;
+      flex-shrink: 0;
+      letter-spacing: .02em;
+    }
+    .card-title {
+      display: flex;
+      align-items: center;
+      padding: 12px 20px;
+      font-family: 'Noto Serif KR', serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.4;
+      letter-spacing: .01em;
+    }
+
+    .card-body {
+      padding: 22px 24px 24px;
+    }
+    .card-body p {
+      font-size: 14px;
+      color: var(--gray-2);
+      line-height: 1.9;
+    }
+    .card-body p + p {
+      margin-top: 10px;
+    }
+
+    /* ── NOTICE ── */
+    .notice {
+      max-width: 760px;
+      margin: 12px auto 0;
+      padding: 0 32px 48px;
+    }
+    .notice-inner {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--navy);
+      padding: 24px 28px;
+      box-shadow: 0 2px 12px rgba(27,58,107,.05);
+    }
+    .notice-title {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 14px;
+      letter-spacing: .04em;
+    }
+    .notice-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .notice-list li {
+      font-size: 13px;
+      color: var(--gray-2);
+      padding-left: 18px;
+      position: relative;
+      line-height: 1.7;
+    }
+    .notice-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy-dark);
+      color: rgba(255,255,255,.35);
+      text-align: center;
+      font-size: 12px;
+      padding: 20px 16px;
+      letter-spacing: .04em;
+    }
+    footer strong { color: rgba(255,255,255,.55); font-weight: 400; }
+
+    @media (max-width: 520px) {
+      .header-inner { padding: 40px 20px 36px; }
+      .intro        { padding: 28px 20px 4px; }
+      .questions    { padding: 20px 20px 12px; }
+      .notice       { padding: 0 20px 36px; }
+      .card-body    { padding: 18px 18px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-accent"></div>
+  <div class="header-inner">
+    <div class="header-label">
+      <span></span>Baekseok University · 경건훈련 1
+    </div>
+    <h1>신학생의 말씀 묵상</h1>
+    <p class="header-sub">소그룹 토론 주제 · 이재국 교수</p>
+    <div class="week-badge">9주차 수업</div>
+  </div>
+</header>
+
+<section class="intro">
+  <p>아래 다섯 가지 질문들을 가지고 토론하십시오.<br>각자의 현재 삶을 돌아보며 나누시길 권합니다.</p>
+</section>
+
+<section class="questions">
+
+  <article class="card">
+    <div class="card-header">
+      <div class="card-num">1</div>
+      <div class="card-title">나는 지금 말씀을 누구를 위해 읽고 있는가?</div>
+    </div>
+    <div class="card-body">
+      <p>신학생으로서 성경을 읽을 때 '가르치기 위한 읽기'와 '나 자신을 위한 읽기'가 실제로 얼마나 구분되는가? 두 읽기가 동시에 가능한가, 아니면 반드시 순서가 있어야 하는가?</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="card-header">
+      <div class="card-num">2</div>
+      <div class="card-title">내 삶에서 '아는 것'과 '사는 것'의 괴리가 가장 뚜렷하게 드러나는 영역은 어디인가?</div>
+    </div>
+    <div class="card-body">
+      <p>정보적 읽기에 익숙해진 자신을 발견한 구체적인 경험이 있다면 나눠보자. 그 원인은 무엇이었고, 어떻게 극복했는가(혹은 아직 극복하지 못했는가)?</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="card-header">
+      <div class="card-num">3</div>
+      <div class="card-title">교부들은 교리가 논의될 뿐 아니라 경험되어야 한다고 했다. 나는 신학 공부를 통해 교리를 실제로 경험하고 있는가?</div>
+    </div>
+    <div class="card-body">
+      <p>벤후저의 표현대로 말씀이 지금도 성령을 통해 효과를 일으키는 발화라면, 최근 말씀이 내 삶에 실제로 효과를 일으킨 경험이 있는가? 없다면 그 이유는 무엇인가?</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="card-header">
+      <div class="card-num">4</div>
+      <div class="card-title">내가 묵상에 시간을 쏟지 못하게 만드는 장애물은 무엇인가?</div>
+    </div>
+    <div class="card-body">
+      <p>바쁜 일정, 피로, 집중력 부족, 습관의 부재 등 묵상을 가로막는 장애물은 사람마다 다르다. 나의 가장 큰 장애물은 무엇인지 솔직하게 나눠보고, 그것을 어떻게 넘어설 수 있을지 함께 생각해보자.</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="card-header">
+      <div class="card-num">5</div>
+      <div class="card-title">나만의 묵상 팁이 있다면 나눠보자.</div>
+    </div>
+    <div class="card-body">
+      <p>지금까지 배운 방법들 외에, 자신이 실제로 써보고 도움이 됐던 묵상 방식이나 습관이 있는가? 시간, 장소, 도구, 순서 등 어떤 것이든 좋다. 서로의 경험에서 배워보자.</p>
+    </div>
+  </article>
+
+</section>
+
+<section class="notice">
+  <div class="notice-inner">
+    <div class="notice-title">과제 안내사항</div>
+    <ul class="notice-list">
+      <li>나눔 보고서의 전체 분량은 A4용지 절반 분량입니다. 모든 질문에 응답할 필요는 없습니다.</li>
+      <li>제출 기한: 9주차 토론이 끝나기 전까지</li>
+      <li>주간반은 구글폼 또는 프린트 제출 가능합니다.</li>
+      <li>온라인반은 사이버캠퍼스 (개인)과제 제출란에 제출해주세요.</li>
+      <li>팀 토론 인증샷 제출은 별도입니다(온라인반만 해당).</li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  &copy; 2026 <strong>Baekseok University</strong>. Edited by Prof. Jaekook Lee.
+</footer>
+
+</body>
+</html>
