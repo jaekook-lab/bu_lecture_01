@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>신학도의 윤리 · 소그룹 토론</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:   #2E4A7A;
+      --navy-dk:#1A2E50;
+      --navy-lt:#EEF2F8;
+      --accent: #C8A45A;
+      --text:   #1E1E1E;
+      --muted:  #6B7280;
+      --line:   #D9E1ED;
+      --white:  #FFFFFF;
+      --bg:     #F7F9FC;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.8;
+      min-height: 100vh;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--navy-dk);
+      color: var(--white);
+      padding: 3rem 2rem 2.4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 20% 50%, rgba(200,164,90,.13) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 30%, rgba(46,74,122,.4) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .header-inner { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; }
+
+    .kicker {
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: .78rem;
+      font-weight: 500;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: .9rem;
+    }
+    header h1 {
+      font-family: 'Noto Serif KR', serif;
+      font-size: clamp(1.6rem, 4vw, 2.3rem);
+      font-weight: 700;
+      line-height: 1.35;
+      margin-bottom: .6rem;
+    }
+    .sub {
+      font-size: .9rem;
+      color: rgba(255,255,255,.6);
+      margin-bottom: 1.6rem;
+    }
+    .week-badge {
+      display: inline-block;
+      background: var(--accent);
+      color: var(--navy-dk);
+      font-family: 'Noto Serif KR', serif;
+      font-size: .82rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      padding: .3rem 1rem;
+      border-radius: 2rem;
+    }
+
+    /* ── INTRO ── */
+    .intro {
+      max-width: 720px;
+      margin: 2.6rem auto 0;
+      padding: 0 1.5rem;
+      text-align: center;
+    }
+    .intro p {
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: .97rem;
+      color: var(--muted);
+      line-height: 1.9;
+    }
+    .verse-strip {
+      margin: 1.8rem auto;
+      max-width: 600px;
+      border-left: 3px solid var(--accent);
+      padding: .8rem 1.2rem;
+      text-align: left;
+      background: var(--white);
+      border-radius: 0 .5rem .5rem 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,.05);
+    }
+    .verse-strip p {
+      font-family: 'Crimson Pro', serif;
+      font-size: 1.08rem;
+      font-style: italic;
+      color: var(--navy);
+      line-height: 1.7;
+      margin-bottom: .25rem;
+    }
+    .verse-strip span {
+      font-size: .78rem;
+      font-style: normal;
+      color: var(--muted);
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+
+    /* ── QUESTIONS ── */
+    .questions {
+      max-width: 720px;
+      margin: 2rem auto 0;
+      padding: 0 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.6rem;
+    }
+
+    .q-card {
+      background: var(--white);
+      border-radius: .75rem;
+      box-shadow: 0 2px 12px rgba(46,74,122,.07);
+      overflow: hidden;
+      transition: box-shadow .2s;
+    }
+    .q-card:hover { box-shadow: 0 6px 24px rgba(46,74,122,.13); }
+
+    .q-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.1rem 1.4rem .9rem;
+      border-bottom: 1px solid var(--line);
+    }
+    .q-num {
+      flex-shrink: 0;
+      width: 2.2rem;
+      height: 2.2rem;
+      border-radius: 50%;
+      background: var(--navy);
+      color: var(--white);
+      font-family: 'Crimson Pro', serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .q-topic {
+      font-family: 'Noto Serif KR', serif;
+      font-size: .82rem;
+      font-weight: 600;
+      color: var(--navy);
+      letter-spacing: .04em;
+    }
+    .q-body {
+      padding: 1.1rem 1.4rem 1.3rem;
+    }
+    .q-body p {
+      font-size: .95rem;
+      line-height: 1.9;
+      color: #2D2D2D;
+    }
+    .q-body .highlight {
+      display: block;
+      margin-top: .7rem;
+      font-family: 'Crimson Pro', serif;
+      font-size: 1rem;
+      font-style: italic;
+      color: var(--navy);
+      border-left: 2px solid var(--accent);
+      padding-left: .8rem;
+      line-height: 1.7;
+    }
+
+    /* ── ASSIGNMENT ── */
+    .assignment {
+      max-width: 720px;
+      margin: 2.4rem auto 0;
+      padding: 0 1.5rem;
+    }
+    .assign-box {
+      background: var(--navy-lt);
+      border: 1px solid var(--line);
+      border-radius: .75rem;
+      padding: 1.5rem 1.6rem;
+    }
+    .assign-box h2 {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--navy-dk);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+    .assign-box h2::before {
+      content: '';
+      display: inline-block;
+      width: .22rem;
+      height: 1rem;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+    .assign-box ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: .55rem;
+    }
+    .assign-box li {
+      font-size: .9rem;
+      color: #374151;
+      padding-left: 1.1rem;
+      position: relative;
+      line-height: 1.7;
+    }
+    .assign-box li::before {
+      content: '·';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+    .deadline {
+      margin-top: 1rem;
+      padding: .7rem 1rem;
+      background: var(--navy);
+      border-radius: .5rem;
+      color: var(--white);
+      font-size: .88rem;
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+    }
+    .deadline-label {
+      font-weight: 500;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 2.8rem 1rem 2rem;
+      font-size: .78rem;
+      color: var(--muted);
+    }
+    footer strong { color: var(--navy); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 480px) {
+      header { padding: 2.2rem 1.2rem 1.8rem; }
+      .questions, .assignment, .intro { padding: 0 1rem; }
+      .q-body p { font-size: .9rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <p class="kicker">Baekseok University &nbsp;·&nbsp; 경건훈련 1</p>
+      <h1>신학도의 윤리</h1>
+      <p class="sub">소그룹 토론 주제 &nbsp;·&nbsp; 이재국 교수</p>
+      <span class="week-badge">11주차 수업</span>
+    </div>
+  </header>
+
+  <section class="intro">
+    <p>
+      아래 다섯 가지 질문들을 가지고 토론하십시오.<br />
+      각자의 현재 삶을 돌아보며 나누시길 권합니다.
+    </p>
+    <div class="verse-strip">
+      <p>이같이 너희 빛이 사람 앞에 비치게 하여 그들로 너희 착한 행실을 보고<br />하늘에 계신 너희 아버지께 영광을 돌리게 하라</p>
+      <span>마태복음 5:16</span>
+    </div>
+  </section>
+
+  <section class="questions">
+
+    <article class="q-card">
+      <div class="q-header">
+        <div class="q-num">1</div>
+        <span class="q-topic">정체성 — 하나님의 사람 vs. 하나님의 청지기</span>
+      </div>
+      <div class="q-body">
+        <p>나는 스스로를 '하나님의 사람'이자 '하나님의 청지기'로 인식하고 있는가? 성도·재정·사역을 대할 때 '주인'처럼 행동하는 영역이 있다면 어디인가?</p>
+      </div>
+    </article>
+
+    <article class="q-card">
+      <div class="q-header">
+        <div class="q-num">2</div>
+        <span class="q-topic">인간관계 — 가정·사회·이성</span>
+      </div>
+      <div class="q-body">
+        <p>가정, 사회적 관계, 이성관계 중 내가 가장 취약하다고 느끼는 영역은 어디인가? 그 이유는 무엇이며, 말씀과 공동체라는 두 가지 해결책을 그 영역에 어떻게 구체적으로 적용할 수 있을까?</p>
+      </div>
+    </article>
+
+    <article class="q-card">
+      <div class="q-header">
+        <div class="q-num">3</div>
+        <span class="q-topic">언어생활 — 말의 영향력</span>
+      </div>
+      <div class="q-body">
+        <p>내 언어생활을 돌아볼 때, 나 자신의 영혼을 해치거나 다른 사람에게 상처를 준 말의 패턴이 있는가?</p>
+        <span class="highlight">"보석과 같은 한 마디의 위로나 권면이 한 영혼을 살리기도 하지만,<br />독침과 같은 경솔한 말 한마디가 한 영혼을 죽이기도 한다"</span>
+        <p style="margin-top:.7rem;">이 말이 내 삶에서 실제로 어떻게 경험되었는지 나누어 보자.</p>
+      </div>
+    </article>
+
+    <article class="q-card">
+      <div class="q-header">
+        <div class="q-num">4</div>
+        <span class="q-topic">충성과 정직 — 단 한 분의 청중</span>
+      </div>
+      <div class="q-body">
+        <span class="highlight">"내게는 단 한 분의 청중밖에 없다." — 오스 기니스</span>
+        <p style="margin-top:.7rem;">나는 실제로 하나님의 칭찬보다 사람들의 인정을 더 의식하며 결정을 내리는 순간이 언제인가?</p>
+      </div>
+    </article>
+
+    <article class="q-card">
+      <div class="q-header">
+        <div class="q-num">5</div>
+        <span class="q-topic">도덕적 삶과 영적 분별력</span>
+      </div>
+      <div class="q-body">
+        <span class="highlight">"도덕적인 삶을 살지 않으면 영적 분별력을 가질 수 없다." — 제임스 패커</span>
+        <p style="margin-top:.7rem;">이 주장에 동의하는가? 윤리적 삶과 영적 능력이 분리된 것처럼 보이는 목회자의 사례를 현실에서 어떻게 이해해야 하는가?</p>
+      </div>
+    </article>
+
+  </section>
+
+  <section class="assignment">
+    <div class="assign-box">
+      <h2>과제 안내사항</h2>
+      <ul>
+        <li>나눔 보고서의 전체 분량은 A4용지 절반 분량입니다. 모든 질문에 응답할 필요는 없습니다.</li>
+        <li>주간반은 구글폼 또는 프린트 제출 가능합니다.</li>
+        <li>온라인반은 사이버캠퍼스 (개인)과제 제출란에 제출해주세요.</li>
+        <li>팀 토론 인증샷 제출은 별도입니다 (온라인반만 해당).</li>
+      </ul>
+      <div class="deadline">
+        <span class="deadline-label">제출 기한</span>
+        <span>11주차 수업이 끝나기 전까지 &nbsp;(5월 17일)</span>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2026 <strong>Baekseok University</strong>. Edited by Prof. Jaekook Lee.
+  </footer>
+
+</body>
+</html>
