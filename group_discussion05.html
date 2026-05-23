@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>신학도의 인간관계 · 소그룹 토론</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:   #1B3A5C;
+      --teal:   #2A7B7B;
+      --teal-light: #E8F4F4;
+      --gold:   #C9922A;
+      --slate:  #4A5568;
+      --muted:  #8896A4;
+      --line:   #D0DBE5;
+      --bg:     #FAFBFC;
+      --white:  #FFFFFF;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background: var(--bg);
+      color: var(--slate);
+      line-height: 1.8;
+      font-size: 15px;
+    }
+
+    /* ── 헤더 ── */
+    header {
+      background: var(--navy);
+      color: var(--white);
+      padding: 3.5rem 2rem 2.8rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 260px; height: 260px;
+      border-radius: 50%;
+      background: rgba(42,123,123,0.18);
+    }
+    header::after {
+      content: '';
+      position: absolute;
+      bottom: -40px; left: -40px;
+      width: 180px; height: 180px;
+      border-radius: 50%;
+      background: rgba(201,146,42,0.12);
+    }
+
+    .label {
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 0.6rem;
+      position: relative; z-index: 1;
+    }
+    header h1 {
+      font-family: 'Noto Serif KR', serif;
+      font-size: clamp(1.9rem, 5vw, 2.8rem);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.3;
+      position: relative; z-index: 1;
+    }
+    .sub {
+      margin-top: 0.5rem;
+      font-size: 13px;
+      color: rgba(255,255,255,0.55);
+      letter-spacing: 0.06em;
+      position: relative; z-index: 1;
+    }
+
+    /* ── 메인 ── */
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 2.4rem 1.5rem 4rem;
+    }
+
+    /* ── 인트로 ── */
+    .intro {
+      margin-bottom: 2.4rem;
+      padding: 1.4rem 1.6rem;
+      border-left: 3px solid var(--teal);
+      background: var(--white);
+      border-radius: 0 8px 8px 0;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+    }
+    .intro p {
+      font-size: 14px;
+      color: var(--slate);
+      line-height: 1.85;
+    }
+    .intro p + p { margin-top: 0.4rem; }
+
+    /* ── 말씀 박스 ── */
+    .verse-box {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 1.5rem 1.8rem;
+      margin-bottom: 2.8rem;
+      text-align: center;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+    }
+    .verse-box blockquote {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 15px;
+      color: var(--navy);
+      line-height: 1.9;
+      margin-bottom: 0.6rem;
+    }
+    .verse-ref {
+      font-size: 12px;
+      color: var(--teal);
+      font-weight: 500;
+      letter-spacing: 0.08em;
+    }
+
+    /* ── 섹션 타이틀 ── */
+    .section-title {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+    }
+
+    /* ── 질문 카드 ── */
+    .question-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.4rem;
+      margin-bottom: 3rem;
+    }
+
+    .q-card {
+      background: var(--white);
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+      overflow: hidden;
+      transition: box-shadow 0.2s;
+    }
+    .q-card:hover {
+      box-shadow: 0 4px 16px rgba(0,0,0,0.09);
+    }
+
+    .q-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1.3rem 1.5rem 0;
+    }
+    .q-num {
+      flex-shrink: 0;
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: var(--navy);
+      color: var(--white);
+      font-size: 13px;
+      font-weight: 600;
+      display: flex; align-items: center; justify-content: center;
+      margin-top: 2px;
+    }
+    .q-num.teal  { background: var(--teal); }
+    .q-num.gold  { background: var(--gold); }
+
+    .q-title {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.5;
+    }
+
+    .q-body {
+      padding: 0.8rem 1.5rem 1.4rem 3.8rem;
+      font-size: 14px;
+      color: var(--slate);
+      line-height: 1.85;
+    }
+
+    /* 온라인/주간 분기 */
+    .q-split {
+      padding: 0.8rem 1.5rem 1.4rem 3.8rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+    .q-branch {
+      background: var(--bg);
+      border-radius: 7px;
+      padding: 0.85rem 1.1rem;
+      border-left: 3px solid var(--line);
+    }
+    .q-branch.weekly { border-left-color: var(--teal); }
+    .q-branch.online { border-left-color: var(--gold); }
+    .branch-tag {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.35rem;
+    }
+    .weekly .branch-tag { color: var(--teal); }
+    .online .branch-tag { color: var(--gold); }
+    .q-branch p {
+      font-size: 13.5px;
+      color: var(--slate);
+      line-height: 1.8;
+    }
+
+    /* ── 구분선 ── */
+    hr.divider {
+      border: none;
+      border-top: 1px solid var(--line);
+      margin: 2.6rem 0;
+    }
+
+    /* ── 과제 안내 ── */
+    .notice-box {
+      background: var(--white);
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      padding: 1.5rem 1.8rem;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+      margin-bottom: 2rem;
+    }
+    .notice-box h2 {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 1rem;
+    }
+    .notice-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+    }
+    .notice-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.55rem;
+      font-size: 13.5px;
+      color: var(--slate);
+      line-height: 1.75;
+    }
+    .notice-list li::before {
+      content: '–';
+      color: var(--teal);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .deadline {
+      margin-top: 1.2rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 13px;
+      color: var(--slate);
+    }
+    .deadline-label {
+      background: var(--navy);
+      color: var(--white);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      padding: 2px 8px;
+      border-radius: 4px;
+      flex-shrink: 0;
+    }
+
+    /* ── 푸터 ── */
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      border-top: 1px solid var(--line);
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.9;
+    }
+    footer strong { color: var(--navy); }
+  </style>
+</head>
+<body>
+
+<header>
+  <p class="label">Baekseok University · 경건훈련 1</p>
+  <h1>신학도의 인간관계</h1>
+  <p class="sub">소그룹 토론 주제 · 이재국 교수 &nbsp;|&nbsp; 13주차 수업</p>
+</header>
+
+<main>
+
+  <div class="intro">
+    <p>아래 다섯 가지 질문들을 가지고 토론하십시오.</p>
+    <p>각자의 현재 삶을 돌아보며 나누시길 권합니다.</p>
+  </div>
+
+  <div class="verse-box">
+    <blockquote>
+      서로 돌아보아 사랑과 선행을 격려하며 모이기를 폐하는<br>
+      어떤 사람들의 습관과 같이 하지 말고 오직 권하여<br>
+      그 날이 가까움을 볼수록 더욱 그리하자
+    </blockquote>
+    <p class="verse-ref">히브리서 10:24–25</p>
+  </div>
+
+  <p class="section-title">Discussion Questions</p>
+
+  <div class="question-list">
+
+    <!-- Q1 -->
+    <div class="q-card">
+      <div class="q-header">
+        <div class="q-num teal">1</div>
+        <p class="q-title">신학대학원에서 어떤 인간관계를 형성하고 싶으신가요?</p>
+      </div>
+      <div class="q-body">
+        멘토, 동지, 동역자 — 이 중에서 지금 내게 가장 필요한 관계는 무엇인가요? 그리고 그 관계를 위해 내가 먼저 어떤 사람이 되어야 할지 나눠보세요.
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="q-card">
+      <div class="q-header">
+        <div class="q-num teal">2</div>
+        <p class="q-title">내 주변에 있는 동료들에 대해 나는 얼마나 알고 있나요?</p>
+      </div>
+      <div class="q-split">
+        <div class="q-branch weekly">
+          <p class="branch-tag">주간반</p>
+          <p>이름, 출신 교회, 신학교에 오게 된 이유 — 이것조차 모르는 동료가 있다면, 한 명에게 먼저 물어보는 것부터 시작해보면 어떨까요?</p>
+        </div>
+        <div class="q-branch online">
+          <p class="branch-tag">온라인반</p>
+          <p>화면 너머의 동료들과 서로를 알아가기 위해, 우리 반에서 함께 해볼 수 있는 것에는 어떤 것들이 있을까요?</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="q-card">
+      <div class="q-header">
+        <div class="q-num">3</div>
+        <p class="q-title">나의 모난 점은 무엇이고, 누가 그것을 깎아주고 있는가?</p>
+      </div>
+      <div class="q-body">
+        "자기를 깎아나가는 것"은 공동체 안에서 일어납니다. 지금까지의 삶에서 동료나 선생님을 통해 내 안의 어떤 부분이 드러난 경험이 있나요? 그 경험이 불편했다면, 지금 돌아보면 어떻게 느껴지나요?
+      </div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="q-card">
+      <div class="q-header">
+        <div class="q-num">4</div>
+        <p class="q-title">나는 공동체 안에서 무의식적으로 선을 긋고 있지는 않은가?</p>
+      </div>
+      <div class="q-body">
+        나도 모르게 특정 사람에게만 편하게 다가가거나, 어떤 사람을 은연중에 멀리한 적이 있나요? 그 기준이 무엇이었는지 솔직하게 나눠보고, 앞으로 어떻게 달라질 수 있을지 이야기해보세요.
+      </div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="q-card">
+      <div class="q-header">
+        <div class="q-num gold">5</div>
+        <p class="q-title">지금 이 공동체에서 내가 먼저 할 수 있는 한 가지 실천은 무엇인가요?</p>
+      </div>
+      <div class="q-body">
+        "서로 돌아보아 사랑과 선행을 격려하라" (히 10:24). 오늘 이 자리를 마치고 돌아가서, 내가 먼저 손 내밀 수 있는 구체적인 한 사람과 한 가지 행동을 나눠보세요.
+      </div>
+    </div>
+
+  </div>
+
+  <hr class="divider" />
+
+  <div class="notice-box">
+    <h2>과제 안내사항</h2>
+    <ul class="notice-list">
+      <li>나눔 보고서의 전체 분량은 A4용지 절반 분량입니다. 모든 질문에 응답할 필요는 없습니다.</li>
+      <li>주간반은 구글폼 또는 프린트 제출 가능합니다.</li>
+      <li>온라인반은 사이버캠퍼스 (개인)과제 제출란에 제출해주세요.</li>
+      <li>팀 토론 인증샷 제출은 별도입니다 (온라인반만 해당).</li>
+    </ul>
+    <div class="deadline">
+      <span class="deadline-label">제출 기한</span>
+      <span>13주차 수업이 끝나기 전까지</span>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  © 2026 <strong>Baekseok University</strong>. Edited by Prof. Jaekook Lee.
+</footer>
+
+</body>
+</html>
