@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>우리 안의 교만 · 소그룹 토론</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=IBM+Plex+Sans+KR:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --paper: #ffffff;
+    --ink:      #1b1b18;
+    --ink-soft: #59564d;
+    --ink-faint:#8a8778;
+    --accent:   #3f5c46;
+    --line:     #e3e0d5;
+  }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans KR', sans-serif;
+    font-weight: 400;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 4.5rem 1.75rem 5rem;
+  }
+
+  /* ── META ROW ── */
+  .meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: .82rem;
+    color: var(--ink-faint);
+    padding-bottom: 1.1rem;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 3rem;
+  }
+  .meta strong {
+    color: var(--ink-soft);
+    font-weight: 500;
+  }
+
+  /* ── TITLE ── */
+  h1 {
+    font-family: 'Noto Serif KR', serif;
+    font-weight: 700;
+    font-size: clamp(1.7rem, 5vw, 2.35rem);
+    line-height: 1.4;
+    letter-spacing: -.01em;
+  }
+  .subtitle {
+    font-size: .95rem;
+    color: var(--ink-faint);
+    margin-top: .55rem;
+  }
+
+  .intro {
+    margin-top: 2.1rem;
+    font-size: .98rem;
+    color: var(--ink-soft);
+    max-width: 34rem;
+  }
+
+  /* ── EPIGRAPH ── */
+  .epigraph {
+    margin: 2.6rem 0 3.4rem;
+    padding-left: 1.3rem;
+    border-left: 2px solid var(--accent);
+  }
+  .epigraph p {
+    font-family: 'Noto Serif KR', serif;
+    font-style: italic;
+    font-size: 1.08rem;
+    color: var(--ink);
+    line-height: 1.75;
+  }
+  .epigraph cite {
+    display: block;
+    margin-top: .5rem;
+    font-style: normal;
+    font-size: .82rem;
+    color: var(--ink-faint);
+  }
+
+  /* ── QUESTIONS ── */
+  .questions {
+    margin-top: 2.2rem;
+  }
+  .q {
+    display: grid;
+    grid-template-columns: 2.6rem 1fr;
+    column-gap: 1.1rem;
+  }
+  .q + .q {
+    margin-top: 2.9rem;
+  }
+  .q-num {
+    font-family: 'Noto Serif KR', serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: var(--accent);
+    line-height: 1.3;
+  }
+  .q-num::before {
+    content: '';
+    display: block;
+    width: 1.15rem;
+    height: 2px;
+    background: var(--accent);
+    margin-bottom: .65rem;
+  }
+  .q-title {
+    font-family: 'Noto Serif KR', serif;
+    font-weight: 600;
+    font-size: 1.05rem;
+    line-height: 1.55;
+    color: var(--ink);
+  }
+  .q-body {
+    margin-top: .55rem;
+    font-size: .92rem;
+    color: var(--ink-soft);
+    line-height: 1.8;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    margin-top: 3.6rem;
+    padding-top: 1.3rem;
+    border-top: 1px solid var(--line);
+    font-size: .8rem;
+    color: var(--ink-faint);
+  }
+  footer .school {
+    color: var(--ink-soft);
+    font-weight: 500;
+  }
+  footer p + p { margin-top: .35rem; }
+
+  @media (max-width: 480px) {
+    .page { padding: 3.2rem 1.25rem 3.5rem; }
+    .q { grid-template-columns: 2.1rem 1fr; column-gap: .85rem; }
+    .q-num { font-size: 1.3rem; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="page">
+
+    <div class="meta">
+      <span><strong>경건훈련 II</strong></span>
+      <span>2026년 2학기 · 3주차</span>
+    </div>
+
+    <h1>우리 안의 교만</h1>
+    <p class="subtitle">Seven Deadly Sins · 제1과 교만</p>
+
+    <p class="intro">
+      아래 여섯 가지 질문을 가지고 소그룹으로 나누어 보십시오. 각자의 고민과 생각,
+      기도제목을 솔직하게 나누는 시간이 되기를 바랍니다.
+    </p>
+
+    <div class="epigraph">
+      <p>하나님이 교만한 자를 물리치시고 겸손한 자들에게 은혜를 주신다.</p>
+      <cite>야고보서 4:6</cite>
+    </div>
+
+    <div class="questions">
+
+      <div class="q">
+        <div class="q-num">1</div>
+        <div>
+          <div class="q-title">나는 하나님을 위해 하는가, 나를 위해 하는가?</div>
+          <p class="q-body">열심과 헌신이 하나님을 향한 것인지, 인정과 자기만족을 향한 것인지 우리는 어떻게 분별할 수 있는가?</p>
+        </div>
+      </div>
+
+      <div class="q">
+        <div class="q-num">2</div>
+        <div>
+          <div class="q-title">“내가 옳다”는 확신과 교만은 어떻게 구별되는가?</div>
+          <p class="q-body">진리에 대한 확신과 교만의 경계는 어디인가? 다른 사람의 의견을 끝까지 경청해야 할 때와 단호히 거절해야 할 때를 어떻게 구별할 수 있을까?</p>
+        </div>
+      </div>
+
+      <div class="q">
+        <div class="q-num">3</div>
+        <div>
+          <div class="q-title">목회자의 권위는 어디까지인가?</div>
+          <p class="q-body">하나님께서 주신 영적 권위와 영향력이 교만과 권력 남용으로 변하지 않으려면, 목회자는 어떤 제한과 견제 장치를 가져야 할까?</p>
+        </div>
+      </div>
+
+      <div class="q">
+        <div class="q-num">4</div>
+        <div>
+          <div class="q-title">목회자의 성공을 무엇으로 측정해야 하는가?</div>
+          <p class="q-body">출석 인원, 헌금, SNS 영향력, 성도들의 평가는 목회자의 사역을 평가하는 데 어느 정도까지 의미가 있을까? 성과를 무시하지 않으면서도 성과주의에 빠지지 않는 길은 무엇일까?</p>
+        </div>
+      </div>
+
+      <div class="q">
+        <div class="q-num">5</div>
+        <div>
+          <div class="q-title">비판받을 때 가장 먼저 해야 할 일은 무엇인가?</div>
+          <p class="q-body">내 행동이나 말에 대해 누군가로부터 지적을 받았을 때, 나는 방어할 것인가 먼저 인정할 것인가? 부당한 비판과 반드시 들어야 할 권면을 어떻게 분별할 수 있을까?</p>
+        </div>
+      </div>
+
+      <div class="q">
+        <div class="q-num">6</div>
+        <div>
+          <div class="q-title">교만을 이기기 위해 실제로 무엇을 포기할 것인가?</div>
+          <p class="q-body">내 의견을 관철할 권리, 인정받을 권리, 마지막 말을 할 권리 중 하나를 내려놓아야 한다면 무엇을 선택하겠는가? 그것이 왜 교만을 다루는 훈련이 될 수 있을까?</p>
+        </div>
+      </div>
+
+    </div>
+
+    <footer>
+      <p class="school">백석대학교 신학대학원</p>
+      <p>경건훈련 II</p>
+    </footer>
+
+  </div>
+
+</body>
+</html>
