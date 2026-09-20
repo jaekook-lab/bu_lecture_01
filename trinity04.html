@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>토론 질문 · 소그룹 토론</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=IBM+Plex+Sans+KR:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --paper: #ffffff;
+    --ink:      #1b1b18;
+    --ink-soft: #59564d;
+    --ink-faint:#8a8778;
+    --accent:   #3f5c46;
+    --line:     #e3e0d5;
+  }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans KR', sans-serif;
+    font-weight: 400;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 4.5rem 1.75rem 5rem;
+  }
+
+  /* ── META ROW ── */
+  .meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: .82rem;
+    color: var(--ink-faint);
+    padding-bottom: 1.1rem;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 3rem;
+  }
+  .meta strong {
+    color: var(--ink-soft);
+    font-weight: 500;
+  }
+
+  /* ── TITLE ── */
+  h1 {
+    font-family: 'Noto Serif KR', serif;
+    font-weight: 700;
+    font-size: clamp(1.7rem, 5vw, 2.35rem);
+    line-height: 1.4;
+    letter-spacing: -.01em;
+  }
+  .subtitle {
+    font-size: .95rem;
+    color: var(--ink-faint);
+    margin-top: .55rem;
+  }
+
+  .intro {
+    margin-top: 2.1rem;
+    font-size: .98rem;
+    color: var(--ink-soft);
+    max-width: 34rem;
+  }
+
+  /* ── EPIGRAPH ── */
+  .epigraph {
+    margin: 2.6rem 0 3.4rem;
+    padding-left: 1.3rem;
+    border-left: 2px solid var(--accent);
+  }
+  .epigraph p {
+    font-family: 'Noto Serif KR', serif;
+    font-style: italic;
+    font-size: 1.08rem;
+    color: var(--ink);
+    line-height: 1.75;
+  }
+  .epigraph cite {
+    display: block;
+    margin-top: .5rem;
+    font-style: normal;
+    font-size: .82rem;
+    color: var(--ink-faint);
+  }
+
+  /* ── QUESTIONS ── */
+  .questions {
+    margin-top: 2.2rem;
+  }
+  .q {
+    display: grid;
+    grid-template-columns: 2.6rem 1fr;
+    column-gap: 1.1rem;
+  }
+  .q + .q {
+    margin-top: 2.9rem;
+  }
+  .q-num {
+    font-family: 'Noto Serif KR', serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: var(--accent);
+    line-height: 1.3;
+  }
+  .q-num::before {
+    content: '';
+    display: block;
+    width: 1.15rem;
+    height: 2px;
+    background: var(--accent);
+    margin-bottom: .65rem;
+  }
+  .q-title {
+    font-family: 'Noto Serif KR', serif;
+    font-weight: 600;
+    font-size: 1.05rem;
+    line-height: 1.55;
+    color: var(--ink);
+  }
+  .q-body {
+    margin-top: .55rem;
+    font-size: .92rem;
+    color: var(--ink-soft);
+    line-height: 1.8;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    margin-top: 3.6rem;
+    padding-top: 1.3rem;
+    border-top: 1px solid var(--line);
+    font-size: .8rem;
+    color: var(--ink-faint);
+  }
+  footer .school {
+    color: var(--ink-soft);
+    font-weight: 500;
+  }
+  footer p + p { margin-top: .35rem; }
+
+  @media (max-width: 480px) {
+    .page { padding: 3.2rem 1.25rem 3.5rem; }
+    .q { grid-template-columns: 2.1rem 1fr; column-gap: .85rem; }
+    .q-num { font-size: 1.3rem; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="page">
+
+    <div class="meta">
+      <span><strong>삼위일체 신앙논쟁사</strong></span>
+      <span>2026년 2학기 · 4주차</span>
+    </div>
+
+    <h1>토론 질문</h1>
+
+    <div class="epigraph">
+      <p>나셨으며, 만들어진 것이 아니며, 아버지와 한 본질을 가지십니다.</p>
+      <cite>니케아 신경, 325년</cite>
+    </div>
+
+    <div class="questions">
+
+      <div class="q">
+        <div class="q-num">1</div>
+        <div>
+          <div class="q-title">아타나시우스는 왜 성자가 피조물이라면 우리를 구원할 수 없다고 주장하는가?</div>
+          <p class="q-body">그의 논증을 본문을 근거로 설명해 보자. 성자의 신성과 우리의 구원이 어떻게 연결되는지 함께 살펴보자.</p>
+        </div>
+      </div>
+
+      <div class="q">
+        <div class="q-num">2</div>
+        <div>
+          <div class="q-title">아타나시우스는 우리가 은혜로 하나님의 자녀가 되는 것과 그리스도가 본질적으로 하나님의 아들이라는 것을 구별한다.</div>
+          <p class="q-body">이 구별이 구원론에서 왜 중요한가? 그리스도의 아들 됨과 우리의 양자 됨이 어떤 점에서 다른지 본문을 바탕으로 설명해 보자.</p>
+        </div>
+      </div>
+
+      <div class="q">
+        <div class="q-num">3</div>
+        <div>
+          <div class="q-title">‘동일본질(homoousios)’은 성경에 직접 등장하지 않는 용어이다. 아타나시우스는 이 용어의 사용을 어떻게 정당화하는가?</div>
+          <p class="q-body">그의 주장은 오늘날 교회가 성경에 없는 신학적 용어를 사용하는 데 어떤 기준을 제공할 수 있을까?</p>
+        </div>
+      </div>
+
+      <div class="q">
+        <div class="q-num">4</div>
+        <div>
+          <div class="q-title">아타나시우스는 니케아 공의회가 새로운 신앙을 만든 것이 아니라 교회가 이미 믿어 온 신앙을 명확하게 표현했다고 주장한다.</div>
+          <p class="q-body">그렇다면 교회의 교리는 어떤 의미에서 ‘발전’할 수 있는가? 새로운 교리를 만드는 것과 기존의 신앙을 더 정확하게 표현하는 것은 어떻게 구별할 수 있을까?</p>
+        </div>
+      </div>
+
+      <div class="q">
+        <div class="q-num">5</div>
+        <div>
+          <div class="q-title">아타나시우스는 아리우스파가 성경의 표현을 사용하면서도 그 의미를 다르게 이해할 수 있다고 지적한다.</div>
+          <p class="q-body">그렇다면 어떤 가르침이 단지 ‘성경적인 표현’을 사용하는 것을 넘어 실제로 성경적인 가르침인지는 어떻게 판단할 수 있을까?</p>
+        </div>
+      </div>
+
+    </div>
+
+    <footer>
+      <p class="school">백석대학교 신학대학원</p>
+      <p>삼위일체 신앙논쟁사</p>
+    </footer>
+
+  </div>
+
+</body>
+</html>
