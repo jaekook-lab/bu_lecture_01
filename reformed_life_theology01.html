@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>개혁주의생명신학이란?</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;700&family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+  :root {
+    color-scheme: light;
+    --bg: #ebe4d6;
+    --paper: #f8f3e8;
+    --ink: #2a2620;
+    --muted: #6b6457;
+    --line: #ddd3c0;
+    --accent: #1f3f7a;
+    --accent-soft: #ece6d6;
+    --gold: #9a7a2e;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+    word-break: keep-all;
+    padding-inline: 16px;
+    padding-block: 32px 64px;
+  }
+  .sheet {
+    max-width: 760px;
+    margin: 0 auto;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: clamp(24px, 5vw, 56px);
+  }
+  header.masthead {
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 20px;
+    margin-bottom: 28px;
+    display: grid;
+    gap: 6px;
+  }
+  .eyebrow {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+  }
+  h1 {
+    font-family: "Noto Serif KR", "Nanum Myeongjo", serif;
+    font-weight: 700;
+    font-size: clamp(28px, 5vw, 38px);
+    line-height: 1.3;
+    margin: 0;
+    text-wrap: balance;
+  }
+  .source {
+    font-size: 14px;
+    color: var(--muted);
+    margin: 0;
+  }
+  .thesis {
+    background: var(--accent-soft);
+    border-radius: 4px;
+    padding: 18px 22px;
+    margin: 0 0 36px;
+  }
+  .thesis strong { color: var(--accent); }
+
+  h2 {
+    font-family: "Noto Serif KR", "Nanum Myeongjo", serif;
+    font-size: 22px;
+    font-weight: 700;
+    margin: 40px 0 16px;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    text-wrap: balance;
+  }
+  h2 .num {
+    font-size: 15px;
+    color: var(--gold);
+    font-family: "Noto Sans KR", sans-serif;
+    font-weight: 700;
+  }
+  h3 {
+    font-size: 17px;
+    font-weight: 700;
+    margin: 28px 0 8px;
+    color: var(--accent);
+  }
+  p { margin: 0 0 12px; }
+  ul { margin: 0 0 12px; padding-left: 1.2em; display: grid; gap: 8px; }
+  li::marker { color: var(--accent); }
+  .lead { font-weight: 700; }
+
+  .solas {
+    list-style: none;
+    padding: 0;
+    margin: 8px 0 4px;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    gap: 0;
+  }
+  .solas li {
+    display: grid;
+    grid-template-columns: 9.5em 1fr;
+    gap: 12px;
+    padding: 10px 16px;
+    border-top: 1px solid var(--line);
+  }
+  .solas li:first-child { border-top: 0; }
+  .solas .sola { font-weight: 700; color: var(--accent); }
+  @media (max-width: 480px) {
+    .solas li { grid-template-columns: 1fr; gap: 0; }
+  }
+
+  .cycle { max-width: 520px; margin: 8px auto 0; }
+  .cycle svg { display: block; width: 100%; height: auto; overflow: visible; }
+  .c-label { font-size: 17px; font-weight: 500; fill: var(--ink); font-family: "Noto Sans KR", sans-serif; }
+  .c-title { font-size: 20px; font-weight: 700; fill: var(--accent); font-family: "Noto Serif KR", serif; }
+  .c-sub { font-size: 14px; fill: var(--muted); font-family: "Noto Sans KR", sans-serif; }
+
+  .cycle .cycle-m { display: none; }
+  .m-label { font-size: 18px; font-weight: 500; fill: var(--ink); font-family: "Noto Sans KR", sans-serif; }
+  .m-title { font-size: 20px; font-weight: 700; fill: var(--accent); font-family: "Noto Serif KR", serif; }
+  .m-sub { font-size: 14px; fill: var(--muted); font-family: "Noto Sans KR", sans-serif; }
+  @media (max-width: 560px) {
+    .cycle .cycle-d { display: none; }
+    .cycle .cycle-m { display: block; }
+  }
+
+  .discuss {
+    margin-top: 44px;
+    border-top: 1px solid var(--line);
+    padding-top: 8px;
+  }
+  .discuss ol {
+    margin: 0;
+    padding-left: 1.4em;
+    display: grid;
+    gap: 14px;
+  }
+  .discuss li::marker { color: var(--gold); font-weight: 700; }
+  footer {
+    max-width: 760px;
+    margin: 20px auto 0;
+    font-size: 13px;
+    color: var(--muted);
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+<main class="sheet">
+  <header class="masthead">
+    <span class="eyebrow">백석대학교 교수 콜로키움 연수 · 2026년 2학기</span>
+    <h1>개혁주의생명신학이란?</h1>
+    <p class="source">『개혁주의생명신학』(표준교과서) 서론 요약</p>
+  </header>
+
+  <p class="thesis"><strong>핵심 명제.</strong> 개혁주의생명신학은 백석학원과 백석총회의 신학적 정체성입니다. 개혁주의신학과 다른 신학이 아니라, 개혁주의신학을 바르게 실천하고 그 신학에 그리스도의 생명을 불어넣자는 신학입니다.</p>
+
+  <section>
+    <h2><span class="num">1</span>주창 배경</h2>
+    <ul>
+      <li><span class="lead">성경 권위의 회복.</span> 16세기 종교개혁은 전통을 성경보다 앞세운 중세교회를 바로잡았습니다. 개혁주의생명신학은 오늘날 신학자와 목회자가 자신이 배운 신학을 성경보다 앞세우는 잘못을 바로잡으려는 운동입니다.</li>
+      <li><span class="lead">2003년 선언.</span> 2003년 “신학은 학문이 아니다” 설교 이후 신학교육 개혁을 촉구해 왔습니다. 한국교회의 문제는 목회자의 문제이고, 목회자의 문제는 신학자의 문제이며, 결국 신학교 운영의 문제입니다.</li>
+      <li><span class="lead">서구 교회의 교훈.</span> 유럽과 미국 교회가 쇠락한 원인은 신학이 학문으로만 발전하면서 그리스도의 생명을 잃은 데 있습니다. 그래서 “신학은 학문이 아니라 예수 그리스도의 생명의 복음”이라고 선언합니다.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2><span class="num">2</span>본질</h2>
+
+    <h3>① 개혁주의를 실천하기 위한 운동</h3>
+    <p>교회의 분열과 세속화 앞에서 사변화된 신학을 반성하고 말씀에 순종하는 신학으로 돌아가자는 운동입니다. 여기서 ‘생명’은 생태적 생명이 아니라 예수 그리스도의 영적 생명을 뜻합니다(요 10:10).</p>
+
+    <h3>② 성경의 권위를 회복하는 운동</h3>
+    <p>성경의 저자는 성령이시고 사람은 기록자일 뿐입니다(벧후 1:20-21). 그러므로 “바울이 말했다”가 아니라 “하나님께서 바울을 통해 말씀하셨다”고 해야 합니다. 1980년 신학대학원 정식 인가 이후 학위 중심 교육과 서구 커리큘럼으로 신학이 사변화되었습니다. 신학교는 다시 기도원처럼 되어야 합니다.</p>
+
+    <h3>③ 5대 솔라와 7대 실천운동</h3>
+    <p>5대 솔라는 오늘날에도 유효한 성경의 원리이며, 「개혁주의생명신학 선언문」에서 현재 상황에 맞게 재해석되었습니다.</p>
+    <ul class="solas">
+      <li><span class="sola">오직 성경</span><span>성경을 통하여 말씀하시는 성령</span></li>
+      <li><span class="sola">오직 그리스도</span><span>십자가와 부활의 삶</span></li>
+      <li><span class="sola">오직 믿음</span><span>순종하는 믿음과 기도</span></li>
+      <li><span class="sola">오직 은혜</span><span>용서와 화해의 복음</span></li>
+      <li><span class="sola">오직 하나님께 영광</span><span>희생과 봉사의 삶</span></li>
+    </ul>
+    <p style="margin-top:12px">선언문은 2010년 백석전진대회에서 발표되었고, 2014년 개정을 거쳐 2017년 총회 신앙고백으로 채택되었습니다.</p>
+    <p>7대 실천운동은 5대 솔라를 구체적으로 실천하는 방법입니다.</p>
+    <div class="cycle"><svg class="cycle-d" viewBox="0 0 560 390" role="img" aria-label="7대 실천운동: 신앙운동, 신학회복운동, 회개용서운동, 영적생명운동, 하나님나라운동, 나눔운동, 기도성령운동"><circle cx="280" cy="200" r="120" fill="none" stroke="var(--accent)" stroke-width="1.5" opacity="0.55"/><text x="280" y="194" text-anchor="middle" class="c-title">7대 실천운동</text><text x="280" y="218" text-anchor="middle" class="c-sub">5대 솔라의 실천</text><circle cx="280.0" cy="80.0" r="7" fill="var(--accent)" stroke="var(--paper)" stroke-width="3"/><text x="280.0" y="64.0" text-anchor="middle" class="c-label">신앙운동</text><circle cx="373.8" cy="125.2" r="7" fill="var(--accent)" stroke="var(--paper)" stroke-width="3"/><text x="387.9" y="119.0" text-anchor="start" class="c-label">신학회복운동</text><circle cx="397.0" cy="226.7" r="7" fill="var(--accent)" stroke="var(--paper)" stroke-width="3"/><text x="414.5" y="235.7" text-anchor="start" class="c-label">회개용서운동</text><circle cx="332.1" cy="308.1" r="7" fill="var(--accent)" stroke="var(--paper)" stroke-width="3"/><text x="339.9" y="329.3" text-anchor="start" class="c-label">영적생명운동</text><circle cx="227.9" cy="308.1" r="7" fill="var(--accent)" stroke="var(--paper)" stroke-width="3"/><text x="220.1" y="329.3" text-anchor="end" class="c-label">하나님나라운동</text><circle cx="163.0" cy="226.7" r="7" fill="var(--accent)" stroke="var(--paper)" stroke-width="3"/><text x="145.5" y="235.7" text-anchor="end" class="c-label">나눔운동</text><circle cx="186.2" cy="125.2" r="7" fill="var(--accent)" stroke="var(--paper)" stroke-width="3"/><text x="172.1" y="119.0" text-anchor="end" class="c-label">기도성령운동</text></svg><svg class="cycle-m" viewBox="0 0 400 300" role="img" aria-label="7대 실천운동: 신앙운동, 신학회복운동, 회개용서운동, 영적생명운동, 하나님나라운동, 나눔운동, 기도성령운동"><circle cx="200" cy="150" r="85" fill="none" stroke="var(--accent)" stroke-width="1.5" opacity="0.55"/><text x="200" y="146" text-anchor="middle" class="m-title">7대 실천운동</text><text x="200" y="170" text-anchor="middle" class="m-sub">5대 솔라의 실천</text><circle cx="200.0" cy="65.0" r="7" fill="var(--accent)" stroke="var(--paper)" stroke-width="3"/><text x="200.0" y="49.0" text-anchor="middle" class="m-label"><tspan x="200.0" dy="0">신앙운동</tspan></text><circle cx="266.5" cy="97.0" r="7" fill="var(--accent)" stroke="var(--paper)" stroke-width="3"/><text x="279.0" y="83.0" text-anchor="start" class="m-label"><tspan x="279.0" dy="0">신학회복</tspan><tspan x="279.0" dy="21">운동</tspan></text><circle cx="282.9" cy="168.9" r="7" fill="var(--accent)" stroke="var(--paper)" stroke-width="3"/><text x="298.5" y="168.5" text-anchor="start" class="m-label"><tspan x="298.5" dy="0">회개용서</tspan><tspan x="298.5" dy="21">운동</tspan></text><circle cx="236.9" cy="226.6" r="7" fill="var(--accent)" stroke="var(--paper)" stroke-width="3"/><text x="255.8" y="238.6" text-anchor="start" class="m-label"><tspan x="255.8" dy="0">영적생명</tspan><tspan x="255.8" dy="21">운동</tspan></text><circle cx="163.1" cy="226.6" r="7" fill="var(--accent)" stroke="var(--paper)" stroke-width="3"/><text x="144.2" y="238.6" text-anchor="end" class="m-label"><tspan x="144.2" dy="0">하나님나라</tspan><tspan x="144.2" dy="21">운동</tspan></text><circle cx="117.1" cy="168.9" r="7" fill="var(--accent)" stroke="var(--paper)" stroke-width="3"/><text x="101.5" y="179.5" text-anchor="end" class="m-label"><tspan x="101.5" dy="0">나눔운동</tspan></text><circle cx="133.5" cy="97.0" r="7" fill="var(--accent)" stroke="var(--paper)" stroke-width="3"/><text x="121.0" y="83.0" text-anchor="end" class="m-label"><tspan x="121.0" dy="0">기도성령</tspan><tspan x="121.0" dy="21">운동</tspan></text></svg></div>
+
+    <h3>④ 교회를 회복시키는 성령운동</h3>
+    <ul>
+      <li>오늘날 개혁주의신학은 성령에 대한 강조가 부족합니다. 그러나 츠빙글리와 칼빈은 본래 성령을 중시했고, 열광주의를 경계하는 과정에서 그 강조가 약화되었습니다.</li>
+      <li>칭의와 성화라는 ‘이중 은혜’와 성령의 열매는 모두 성령의 사역입니다.</li>
+      <li>1907년 대부흥처럼, 무릎 꿇고 성령의 도우심을 구하는 ‘기도성령운동’이 개혁주의생명신학을 실천하는 원동력입니다.</li>
+    </ul>
+  </section>
+
+  <section class="discuss">
+    <h2>토론을 위한 질문</h2>
+    <ol>
+      <li>한국교회의 상황과 관련하여 개혁주의생명신학의 주창 배경에 대해 나누어 보십시오.</li>
+      <li>개혁주의생명신학의 강조점 가운데 가장 중요한 것은 무엇이라고 생각하는지 서로의 의견을 나누어 보십시오.</li>
+      <li>한국교회의 침체가 1980년 신학대학원의 교육부 정식 인가와 무관하지 않다는 주장에 대해 서로의 의견을 나누어 보십시오.</li>
+    </ol>
+  </section>
+</main>
+<footer>출처: 『개혁주의생명신학』 1장 “개혁주의생명신학이란?”</footer>
+</body>
+</html>
