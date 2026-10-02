@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>오직 성경</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;700&family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+  :root {
+    color-scheme: light;
+    --bg: #ebe4d6;
+    --paper: #f8f3e8;
+    --ink: #2a2620;
+    --muted: #6b6457;
+    --line: #ddd3c0;
+    --accent: #1f3f7a;
+    --accent-soft: #ece6d6;
+    --gold: #9a7a2e;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+    word-break: keep-all;
+    padding-inline: 16px;
+    padding-block: 32px 64px;
+  }
+  .sheet {
+    max-width: 760px;
+    margin: 0 auto;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: clamp(24px, 5vw, 56px);
+  }
+  header.masthead {
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 20px;
+    margin-bottom: 28px;
+    display: grid;
+    gap: 6px;
+  }
+  .eyebrow {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+  }
+  h1 {
+    font-family: "Noto Serif KR", "Nanum Myeongjo", serif;
+    font-weight: 700;
+    font-size: clamp(28px, 5vw, 38px);
+    line-height: 1.3;
+    margin: 0;
+    text-wrap: balance;
+  }
+  .source {
+    font-size: 14px;
+    color: var(--muted);
+    margin: 0;
+  }
+  .thesis {
+    background: var(--accent-soft);
+    border-radius: 4px;
+    padding: 18px 22px;
+    margin: 0 0 36px;
+  }
+  .thesis strong { color: var(--accent); }
+
+  h2 {
+    font-family: "Noto Serif KR", "Nanum Myeongjo", serif;
+    font-size: 22px;
+    font-weight: 700;
+    margin: 40px 0 16px;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    text-wrap: balance;
+  }
+  h2 .num {
+    font-size: 15px;
+    color: var(--gold);
+    font-family: "Noto Sans KR", sans-serif;
+    font-weight: 700;
+  }
+  h3 {
+    font-size: 17px;
+    font-weight: 700;
+    margin: 28px 0 8px;
+    color: var(--accent);
+  }
+  p { margin: 0 0 12px; }
+  ul { margin: 0 0 12px; padding-left: 1.2em; display: grid; gap: 8px; }
+  li::marker { color: var(--accent); }
+  .lead { font-weight: 700; }
+
+  .subtitle {
+    font-family: "Noto Serif KR", "Nanum Myeongjo", serif;
+    font-size: clamp(18px, 3.2vw, 21px);
+    font-weight: 500;
+    color: var(--accent);
+    margin: 0;
+  }
+  .ref { color: var(--muted); font-size: 14px; white-space: nowrap; }
+
+  .theories {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 12px 0 16px;
+  }
+  .camp {
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 14px 16px;
+    display: grid;
+    gap: 10px;
+    align-content: start;
+  }
+  .camp.ours { border-color: var(--accent); }
+  .camp-name {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+  }
+  .camp.ours .camp-name { color: var(--accent); }
+  .camp dl { margin: 0; display: grid; gap: 10px; }
+  .camp dt { font-weight: 700; }
+  .camp dd { margin: 0; font-size: 15px; line-height: 1.7; }
+  @media (max-width: 560px) {
+    .theories { grid-template-columns: 1fr; }
+  }
+
+  .ratio {
+    display: grid;
+    gap: 8px;
+    margin: 12px 0 16px;
+  }
+  .ratio-row {
+    display: grid;
+    grid-template-columns: 3.2em 1fr;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+  }
+  .ratio-row .what { font-weight: 700; }
+  .bar {
+    height: 30px;
+    border-radius: 3px;
+    background: var(--accent);
+    color: var(--paper);
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  .bar.b1 { width: 33.33%; background: #b9ad94; color: var(--ink); }
+  .bar.b2 { width: 66.66%; background: #6f7f9e; }
+  .bar.b3 { width: 100%; }
+
+  .discuss {
+    margin-top: 44px;
+    border-top: 1px solid var(--line);
+    padding-top: 8px;
+  }
+  .discuss ol {
+    margin: 0;
+    padding-left: 1.4em;
+    display: grid;
+    gap: 14px;
+  }
+  .discuss li::marker { color: var(--gold); font-weight: 700; }
+  footer {
+    max-width: 760px;
+    margin: 20px auto 0;
+    font-size: 13px;
+    color: var(--muted);
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+<main class="sheet">
+  <header class="masthead">
+    <span class="eyebrow">백석대학교 교수 콜로키움 연수 · 2026년 2학기</span>
+    <h1>오직 성경</h1>
+    <p class="subtitle">성경을 통하여 말씀하시는 성령</p>
+    <p class="source">『개혁주의생명신학』(표준교과서) 5대 솔라 ① “오직 성경” 요약</p>
+  </header>
+
+  <p class="thesis"><strong>핵심 명제.</strong> 종교개혁의 ‘오직 성경’은 교회의 전통이 아니라 성경만이 진리의 원천이라는 선언이었습니다. 「개혁주의생명신학 선언문」은 이를 그대로 받아들이면서 그 실천적 의미를 강조합니다. 성경은 성령의 감동으로 기록된 하나님의 말씀이므로, 성령의 도우심을 구하며 기도함으로 읽어야 합니다.</p>
+
+  <p>오늘날 한국교회가 예수 그리스도의 영적 생명을 잃어 가는 근본 원인은 성경을 하나님의 말씀으로 믿지 않는 데 있습니다. 성경을 연구하고 가르치면서도 하나님을 두려워하거나 순종하지 않고, 성경을 통해 예수님을 알고 닮아 가는 일에는 관심이 없습니다.</p>
+
+  <section>
+    <h2><span class="num">1</span>성경의 권위가 회복되어야 한다</h2>
+    <ul>
+      <li>성경은 예수 그리스도의 복음이며, 구원과 삶의 모든 문제에 대한 유일하고 완전한 답입니다. 말씀이 선포되는 곳에 성령이 함께 일하십니다. <span class="ref">(눅 24:27; 롬 1:1-2; 요 6:63)</span></li>
+      <li>중세교회는 전통을 성경보다 앞세워 타락했고, 종교개혁자들은 ‘오직 성경’으로 복음의 능력을 회복했습니다.</li>
+      <li>오늘날 개혁주의신학은 전수받은 신학 체계와 교리를 <span class="lead">새로운 전통</span>으로 삼아 성경보다 앞세우고 있습니다. 그 결과 성경이 강단에서 밀려났습니다.</li>
+      <li>성경을 자의적으로 해석하지 않도록 건전한 신학 전통은 익혀야 합니다. 그러나 강단에서는 신학이 아니라 성경을 전하고 가르쳐야 합니다. “신학은 학문이 아니다”라는 주장은 이 맥락에서 나왔습니다.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2><span class="num">2</span>성경은 하나님의 계시다</h2>
+    <ul>
+      <li>계시는 사람의 지혜로 알 수 없는 진리를 하나님께서 가르쳐 주시는 것입니다. 그러므로 인간의 기준으로 판단해서는 안 됩니다. <span class="ref">(벧후 1:20)</span></li>
+      <li>“다윗이 말했다”가 아니라 여호와의 영이 다윗을 통하여 말씀하신 것입니다. <span class="ref">(삼하 23:1-2; 행 4:25)</span> 성경을 인간 저자의 말로 가르치는 것은 계시를 인정하지 않는 교만이며, 이것이 강단을 무력하게 만듭니다.</li>
+      <li>전하는 자와 듣는 자 모두가 성경을 하나님의 살아 있는 말씀으로 받을 때 말씀의 능력이 나타납니다. <span class="ref">(살전 2:13)</span></li>
+      <li>1980년 목회학 석사(M.Div.) 과정 도입 이후 목회자들은 성경보다 인간의 지식을 의지하게 되었습니다. 하나님에 대해 말하는 것은 학문이지만, 하나님께서 하신 말씀은 복음이요 계시입니다.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2><span class="num">3</span>성경은 성령의 감동으로 기록된 말씀이다</h2>
+    <p>모든 성경은 사람의 뜻이 아니라 성령의 감동을 받은 사람들이 하나님께 받아 기록한 것입니다. <span class="ref">(벧후 1:21; 딤후 3:16)</span> 모세와 바울은 도구일 뿐이므로 “하나님께서 모세를 통하여, 바울을 통하여 말씀하셨다”고 해야 합니다.</p>
+
+    <div class="theories">
+      <div class="camp ours">
+        <span class="camp-name">개혁주의신학</span>
+        <dl>
+          <div><dt>유기적 영감설</dt><dd>하나님께서 성경 기자들의 성품과 은사를 온전히 사용하시되, 죄로 인한 오류가 없도록 보호하셨다.</dd></div>
+          <div><dt>축자영감설 (완전영감설)</dt><dd>글자 하나하나까지, 성경의 모든 부분이 영감으로 기록된 무오한 말씀이다.</dd></div>
+        </dl>
+      </div>
+      <div class="camp">
+        <span class="camp-name">자유주의신학</span>
+        <dl>
+          <div><dt>사상영감설</dt><dd>사상은 영감으로 주어졌으나 언어는 인간의 선택에 따랐다.</dd></div>
+          <div><dt>부분영감설</dt><dd>과학이나 역사로 입증할 수 없는 부분은 영감으로 기록되지 않았다.</dd></div>
+        </dl>
+      </div>
+    </div>
+
+    <ul>
+      <li>자유주의의 문제는 성경의 어느 부분이 영감되었는지를 피조물인 인간이 결정한다는 데 있습니다. 이런 생각은 보수주의에도 퍼져 있어서, 말로는 축자영감을 믿는다고 하면서 삶에서는 말씀을 믿고 행하지 않습니다.</li>
+      <li>신학 연구가 저자, 연대, 역사적 배경에 집착하고 성경보다 다른 학자들의 각주에 권위를 둘 때, 원저자이신 하나님보다 인간 저자를 가르치게 됩니다. 사람을 변화시키는 것은 지식이 아니라 하나님의 말씀입니다.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2><span class="num">4</span>성령이 성경을 깨닫게 하신다</h2>
+    <ul>
+      <li>‘영감’에는 하나님의 숨결이라는 뜻이 담겨 있습니다. 성령의 감동으로 기록된 말씀은 성령께서 조명하셔야만 깨달을 수 있습니다. <span class="ref">(욥 32:8; 시 119:18; 요 14:26; 고전 2:10-11)</span></li>
+      <li>성령 충만해야 말씀을 담대히 전하고, 자기희생과 봉사를 할 수 있습니다. <span class="ref">(행 4:31; 빌 3:3)</span></li>
+      <li>성령은 기도할 때 주어집니다. <span class="ref">(눅 11:13; 행 8:15-17)</span> 설교자는 성경 66권을 정확무오한 말씀으로 믿고 “하나님께서 말씀하신다”고 전해야 합니다.</li>
+    </ul>
+    <p>성령 충만한 설교자가 되기 위한 시간의 비율:</p>
+    <div class="ratio" role="img" aria-label="책 1시간, 성경 2시간, 기도 3시간">
+      <div class="ratio-row"><span class="what">책</span><span class="bar b1">1시간</span></div>
+      <div class="ratio-row"><span class="what">성경</span><span class="bar b2">2시간</span></div>
+      <div class="ratio-row"><span class="what">기도</span><span class="bar b3">3시간</span></div>
+    </div>
+    <p>말씀과 기도에 집중하여 성령 충만한 설교자가 말씀을 선포할 때, 죽어 가는 영혼이 살아나고 교회의 생명력이 회복됩니다. <span class="ref">(벧후 1:19)</span></p>
+  </section>
+
+  <section class="discuss">
+    <h2>토론을 위한 질문</h2>
+    <ol>
+      <li>성경이 하나님의 말씀이라는 확신이 있는지 서로의 생각을 정직하게 나누어 보십시오.</li>
+      <li>부분 영감이나 사상 영감의 가장 큰 문제는 무엇이라고 생각하십니까?</li>
+      <li>성경과 성령의 관계에 대한 서로의 생각을 나누어 보십시오.</li>
+    </ol>
+  </section>
+</main>
+<footer>출처: 『개혁주의생명신학』 II장 “개혁주의생명신학 5대 솔라” 중 1. “오직 성경: 성경을 통하여 말씀하시는 성령”</footer>
+</body>
+</html>
