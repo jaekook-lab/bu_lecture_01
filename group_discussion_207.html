@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>우리 안의 분노 · 소그룹 토론</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=IBM+Plex+Sans+KR:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --paper: #ffffff;
+    --ink:      #1b1b18;
+    --ink-soft: #59564d;
+    --ink-faint:#8a8778;
+    --accent:   #3f5c46;
+    --line:     #e3e0d5;
+  }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans KR', sans-serif;
+    font-weight: 400;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 4.5rem 1.75rem 5rem;
+  }
+
+  /* ── META ROW ── */
+  .meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: .82rem;
+    color: var(--ink-faint);
+    padding-bottom: 1.1rem;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 3rem;
+  }
+  .meta strong {
+    color: var(--ink-soft);
+    font-weight: 500;
+  }
+
+  /* ── TITLE ── */
+  h1 {
+    font-family: 'Noto Serif KR', serif;
+    font-weight: 700;
+    font-size: clamp(1.7rem, 5vw, 2.35rem);
+    line-height: 1.4;
+    letter-spacing: -.01em;
+  }
+  .subtitle {
+    font-size: .95rem;
+    color: var(--ink-faint);
+    margin-top: .55rem;
+  }
+
+  .intro {
+    margin-top: 2.1rem;
+    font-size: .98rem;
+    color: var(--ink-soft);
+    max-width: 34rem;
+  }
+
+  /* ── EPIGRAPH ── */
+  .epigraph {
+    margin: 2.6rem 0 3.4rem;
+    padding-left: 1.3rem;
+    border-left: 2px solid var(--accent);
+  }
+  .epigraph p {
+    font-family: 'Noto Serif KR', serif;
+    font-style: italic;
+    font-size: 1.08rem;
+    color: var(--ink);
+    line-height: 1.75;
+  }
+  .epigraph cite {
+    display: block;
+    margin-top: .5rem;
+    font-style: normal;
+    font-size: .82rem;
+    color: var(--ink-faint);
+  }
+
+  /* ── QUESTIONS ── */
+  .questions {
+    margin-top: 2.2rem;
+  }
+  .q {
+    display: grid;
+    grid-template-columns: 2.6rem 1fr;
+    column-gap: 1.1rem;
+  }
+  .q + .q {
+    margin-top: 2.9rem;
+  }
+  .q-num {
+    font-family: 'Noto Serif KR', serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: var(--accent);
+    line-height: 1.3;
+  }
+  .q-num::before {
+    content: '';
+    display: block;
+    width: 1.15rem;
+    height: 2px;
+    background: var(--accent);
+    margin-bottom: .65rem;
+  }
+  .q-title {
+    font-family: 'Noto Serif KR', serif;
+    font-weight: 600;
+    font-size: 1.05rem;
+    line-height: 1.55;
+    color: var(--ink);
+  }
+  .q-body {
+    margin-top: .55rem;
+    font-size: .92rem;
+    color: var(--ink-soft);
+    line-height: 1.8;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    margin-top: 3.6rem;
+    padding-top: 1.3rem;
+    border-top: 1px solid var(--line);
+    font-size: .8rem;
+    color: var(--ink-faint);
+  }
+  footer .school {
+    color: var(--ink-soft);
+    font-weight: 500;
+  }
+  footer p + p { margin-top: .35rem; }
+
+  @media (max-width: 480px) {
+    .page { padding: 3.2rem 1.25rem 3.5rem; }
+    .q { grid-template-columns: 2.1rem 1fr; column-gap: .85rem; }
+    .q-num { font-size: 1.3rem; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="page">
+
+    <div class="meta">
+      <span><strong>경건훈련 II</strong></span>
+      <span>2026년 2학기 · 7주차</span>
+    </div>
+
+    <h1>우리 안의 분노</h1>
+    <p class="subtitle">Seven Deadly Sins · 제3과 분노</p>
+
+    <p class="intro">
+      아래 다섯 가지 질문을 가지고 소그룹으로 나누어 보십시오. 각자의 고민과 생각,
+      기도제목을 솔직하게 나누는 시간이 되기를 바랍니다. 나누기 어려운 부분은
+      나누지 않아도 됩니다.
+    </p>
+
+    <div class="epigraph">
+      <p>사람이 성내는 것이 하나님의 의를 이루지 못함이라.</p>
+      <cite>야고보서 1:20</cite>
+    </div>
+
+    <div class="questions">
+
+      <div class="q">
+        <div class="q-num">1</div>
+        <div>
+          <div class="q-title">하나님의 분노와 우리의 분노는 어떻게 다른가?</div>
+          <p class="q-body">성경에 나오는 하나님과 예수님의 분노, 그리고 내가 화를 냈던 순간을 떠올려 보자. 둘 사이에서 무엇이 같고 무엇이 다른가?</p>
+        </div>
+      </div>
+
+      <div class="q">
+        <div class="q-num">2</div>
+        <div>
+          <div class="q-title">정당한 분노와 정당하지 않은 분노를 어떻게 구별할 수 있을까?</div>
+          <p class="q-body">내 분노가 정당한지 아닌지를 무엇을 보고 판단할 수 있을까? 스스로 판단하기 어려운 이유는 무엇인가?</p>
+        </div>
+      </div>
+
+      <div class="q">
+        <div class="q-num">3</div>
+        <div>
+          <div class="q-title">동기는 정당했지만 표출이 잘못되었다면 어떻게 해야 할까?</div>
+          <p class="q-body">시므온과 레위의 경우처럼, 이미 쏟아낸 분노와 아직 품고 있는 분노 앞에서 각각 무엇을 해야 하는가?</p>
+        </div>
+      </div>
+
+      <div class="q">
+        <div class="q-num">4</div>
+        <div>
+          <div class="q-title">억울한 상황에 있는 성도에게 어떻게 조언해 줄 것인가?</div>
+          <p class="q-body">억울함을 부정하지 않으면서, “참으라”는 말로 상처를 키우지 않으려면 무엇을 먼저 하고 무엇을 말할 것인가?</p>
+        </div>
+      </div>
+
+      <div class="q">
+        <div class="q-num">5</div>
+        <div>
+          <div class="q-title">사역 현장에서 분노를 마주하는 상황에는 어떤 것이 있고, 어떻게 대처할 것인가?</div>
+          <p class="q-body">성도의 비난, 동역자 갈등, 온라인 공격 같은 구체적 상황 하나를 꼽고, 어떻게 대처할지 나누어 보자.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <footer>
+      <p class="school">백석대학교 신학대학원</p>
+      <p>경건훈련 II</p>
+    </footer>
+
+  </div>
+
+</body>
+</html>
