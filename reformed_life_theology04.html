@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>오직 믿음</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;700&family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+  :root {
+    color-scheme: light;
+    --bg: #ebe4d6;
+    --paper: #f8f3e8;
+    --ink: #2a2620;
+    --muted: #6b6457;
+    --line: #ddd3c0;
+    --accent: #1f3f7a;
+    --accent-soft: #ece6d6;
+    --gold: #9a7a2e;
+    --blue-fill: #e3e7ef;
+    --sand-fill: #ece5d6;
+    --sand-line: #a39577;
+    --sand-ink: #6b5d40;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+    word-break: keep-all;
+    padding-inline: 16px;
+    padding-block: 32px 64px;
+  }
+  .sheet {
+    max-width: 760px;
+    margin: 0 auto;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: clamp(24px, 5vw, 56px);
+  }
+  header.masthead {
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 20px;
+    margin-bottom: 28px;
+    display: grid;
+    gap: 6px;
+  }
+  .eyebrow {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+  }
+  h1 {
+    font-family: "Noto Serif KR", "Nanum Myeongjo", serif;
+    font-weight: 700;
+    font-size: clamp(28px, 5vw, 38px);
+    line-height: 1.3;
+    margin: 0;
+    text-wrap: balance;
+  }
+  .subtitle {
+    font-family: "Noto Serif KR", "Nanum Myeongjo", serif;
+    font-size: clamp(18px, 3.2vw, 21px);
+    font-weight: 500;
+    color: var(--accent);
+    margin: 0;
+  }
+  .source {
+    font-size: 14px;
+    color: var(--muted);
+    margin: 0;
+  }
+  .thesis {
+    background: var(--accent-soft);
+    border-radius: 4px;
+    padding: 18px 22px;
+    margin: 0 0 36px;
+  }
+  .thesis strong { color: var(--accent); }
+
+  h2 {
+    font-family: "Noto Serif KR", "Nanum Myeongjo", serif;
+    font-size: 22px;
+    font-weight: 700;
+    margin: 40px 0 16px;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    text-wrap: balance;
+  }
+  h2 .num {
+    font-size: 15px;
+    color: var(--gold);
+    font-family: "Noto Sans KR", sans-serif;
+    font-weight: 700;
+  }
+  p { margin: 0 0 12px; }
+  ul { margin: 0 0 12px; padding-left: 1.2em; display: grid; gap: 8px; }
+  li::marker { color: var(--accent); }
+  .lead { font-weight: 700; }
+  .ref { color: var(--muted); font-size: 14px; white-space: nowrap; }
+
+  /* 이중 전가 */
+  .exchange {
+    margin: 16px 0 20px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 16px;
+    display: grid;
+    gap: 10px;
+  }
+  .ex-title {
+    font-family: "Noto Serif KR", "Nanum Myeongjo", serif;
+    font-weight: 700;
+    font-size: 17px;
+    color: var(--accent);
+    text-align: center;
+  }
+  .ex-grid {
+    display: grid;
+    grid-template-columns: 1fr 52px 1fr;
+    gap: 10px 0;
+    align-items: stretch;
+  }
+  .ex-head {
+    text-align: center;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+  }
+  .ex-cell {
+    border-radius: 6px;
+    padding: 10px 12px;
+    display: grid;
+    gap: 2px;
+    align-content: center;
+  }
+  .ex-cell b {
+    font-family: "Noto Serif KR", "Nanum Myeongjo", serif;
+    font-size: 16.5px;
+    line-height: 1.45;
+  }
+  .ex-cell span { font-size: 14px; line-height: 1.6; }
+  .ex-cell.sin { background: var(--sand-fill); border: 1.5px dashed var(--sand-line); }
+  .ex-cell.sin b { color: var(--sand-ink); }
+  .ex-cell.righteous { background: var(--blue-fill); border: 1.5px solid var(--accent); }
+  .ex-cell.righteous b { color: var(--accent); }
+  .ex-arrow {
+    display: grid;
+    place-items: center;
+    align-content: center;
+    gap: 0;
+    color: var(--gold);
+    font-weight: 700;
+  }
+  .ex-arrow .glyph { font-size: 22px; line-height: 1; }
+  .ex-arrow .word { font-size: 11.5px; letter-spacing: 0.04em; }
+  .ex-foot {
+    font-size: 14px;
+    color: var(--muted);
+    text-align: center;
+    margin: 0;
+  }
+
+  /* 바울 ↔ 야고보 */
+  .pair {
+    margin: 16px 0 20px;
+    display: grid;
+    gap: 0;
+  }
+  .voices {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .voice {
+    background: var(--blue-fill);
+    border: 1.5px solid var(--accent);
+    border-radius: 6px;
+    padding: 14px 16px;
+    display: grid;
+    gap: 6px;
+    align-content: start;
+  }
+  .voice-name {
+    font-family: "Noto Serif KR", "Nanum Myeongjo", serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--accent);
+  }
+  .voice q {
+    quotes: "“" "”";
+    font-size: 15px;
+    line-height: 1.65;
+  }
+  .voice .ref { white-space: normal; }
+  .join {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 30px;
+  }
+  .join i {
+    border-left: 2px solid var(--gold);
+    border-bottom: 2px solid var(--gold);
+    margin-left: 50%;
+  }
+  .join i:last-child {
+    border-left: 0;
+    border-right: 2px solid var(--gold);
+    margin-left: 0;
+    margin-right: 50%;
+  }
+  .verdict {
+    background: var(--paper);
+    border: 2px solid var(--gold);
+    border-radius: 6px;
+    padding: 14px 16px;
+    display: grid;
+    gap: 4px;
+    text-align: center;
+  }
+  .verdict b {
+    font-family: "Noto Serif KR", "Nanum Myeongjo", serif;
+    font-size: 18px;
+    color: var(--gold);
+  }
+  .verdict span { font-size: 15px; line-height: 1.65; }
+
+  @media (max-width: 560px) {
+    .voices { grid-template-columns: 1fr; }
+    .join { grid-template-columns: 1fr; height: 22px; }
+    .join i { border-bottom: 0; }
+    .join i:last-child { display: none; }
+    .ex-grid { grid-template-columns: 1fr 40px 1fr; }
+    .ex-cell { padding: 9px 10px; }
+    .ex-cell b { font-size: 14.5px; }
+    .ex-grid { gap: 10px 0; }
+    .ex-cell span { font-size: 13.5px; }
+  }
+
+  .discuss {
+    margin-top: 44px;
+    border-top: 1px solid var(--line);
+    padding-top: 8px;
+  }
+  .discuss ol {
+    margin: 0;
+    padding-left: 1.4em;
+    display: grid;
+    gap: 14px;
+  }
+  .discuss li::marker { color: var(--gold); font-weight: 700; }
+  footer {
+    max-width: 760px;
+    margin: 20px auto 0;
+    font-size: 13px;
+    color: var(--muted);
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+<main class="sheet">
+  <header class="masthead">
+    <span class="eyebrow">백석대학교 교수 콜로키움 연수 · 2026년 2학기</span>
+    <h1>오직 믿음</h1>
+    <p class="subtitle">순종하는 믿음과 기도</p>
+    <p class="source">『개혁주의생명신학』(표준교과서) 5대 솔라 ③ “오직 믿음” 요약</p>
+  </header>
+
+  <p class="thesis"><strong>핵심 명제.</strong> 종교개혁의 ‘오직 믿음’은 인간의 공로 없이 오직 믿음으로만 의롭게 된다는 진리였습니다. 「개혁주의생명신학 선언문」은 믿음이 그리스도께서 이루신 일을 받아들이는 것을 넘어 <strong>실제적인 삶</strong>이어야 한다고 강조합니다. 참된 믿음은 반드시 순종을 동반하며, 이를 강조하지 않으면 ‘오직 믿음’이 악용될 수 있습니다. 또한 믿음은 기도와 깊이 관련되어, 믿음의 기도를 통해 세상을 이기는 그리스도인이 됩니다.</p>
+
+  <p>‘오직 믿음’(sola fide)은 이신칭의를 대변하는 말입니다. 루터와 칼빈은 구원에 믿음 외에 선행도 필요하다는 중세교회의 주장에 반대했고, 루터는 이 교리를 “교회가 서기도 하고 넘어지게도 하는” 가장 중요한 교리로 보았습니다.</p>
+
+  <section>
+    <h2><span class="num">1</span>인간은 오직 그리스도의 대속을 믿음으로써 구원받는다</h2>
+    <ul>
+      <li>인간은 전적으로 타락하여 하나님의 심판 아래 있으며, 스스로 의와 구원에 이를 수 없습니다. <span class="ref">(롬 3:10, 23; 5:12; 6:23)</span></li>
+      <li>하나님은 그리스도를 보내셨고, 그리스도는 십자가에서 우리 죄를 대신 담당하시고 부활로 우리를 의롭게 하셨습니다. 그분만이 유일한 구원자이자 중보자입니다. <span class="ref">(갈 3:13; 요 3:16; 롬 5:10; 행 4:12)</span></li>
+      <li>그러므로 ‘오직 믿음’의 고백은 내가 죄인임을 받아들이고, 자신을 철저히 부정하며 오직 그리스도만 의지하고 영접하는 자세입니다. <span class="ref">(롬 10:9; 빌 2:6-11; 계 3:20)</span></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2><span class="num">2</span>오직 믿음은 그리스도의 의(義) 전가에 기초한다</h2>
+    <ul>
+      <li>칼빈에 따르면 칭의는 하나님께서 믿는 자에게 그리스도의 의를 전가하여 죄를 용서하고 의인으로 선언하시는 은혜로운 법적 행위입니다. 칭의는 죄의 용서와 그리스도의 의의 전가로 이루어집니다. <span class="ref">(『기독교강요』 3.11.2)</span></li>
+      <li>하나님은 자신의 공의와 사랑을 동시에 충족시키려고 아들을 온전한 사람으로 보내시고, 사람들의 죄를 그에게 전가하여 대신 죽게 하셨습니다. 그리스도는 우리 대신 심판을 받으셨을 뿐 아니라, 우리가 어긴 모든 법을 대신 지켜 우리를 위한 의를 마련하셨습니다.</li>
+    </ul>
+
+    <div class="exchange" role="figure" aria-label="이중 전가: 우리의 죄는 그리스도께, 그리스도의 의는 우리에게">
+      <div class="ex-title">두 방향의 전가</div>
+      <div class="ex-grid">
+        <div class="ex-head">우리</div>
+        <div></div>
+        <div class="ex-head">그리스도</div>
+
+        <div class="ex-cell sin"><b>우리의 죄</b><span>모든 사람이 범죄하여 심판 아래 있음</span></div>
+        <div class="ex-arrow" aria-hidden="true"><span class="glyph">→</span><span class="word">전가</span></div>
+        <div class="ex-cell sin"><b>대신 심판받으심</b><span>죄를 지시고 우리 대신 죽으심</span></div>
+
+        <div class="ex-cell righteous"><b>의인으로 선언됨</b><span>그리스도의 의의 옷을 입음</span></div>
+        <div class="ex-arrow" aria-hidden="true"><span class="glyph">←</span><span class="word">전가</span></div>
+        <div class="ex-cell righteous"><b>그리스도의 의</b><span>모든 법을 온전히 지키심</span></div>
+      </div>
+      <p class="ex-foot">“하나님께서 죄를 알지도 못하신 자[예수 그리스도]를 우리를 대신하여 죄로 삼으신 것은, 우리가 예수 그리스도 안에서 하나님의 의가 되도록 하기 위함” <span class="ref">(고후 5:21)</span><br>칼빈은 이 구절을 그리스도의 의가 우리에게 전가됨을 보여 주는 결정적인 말씀으로 보았습니다.</p>
+    </div>
+
+    <ul>
+      <li>의의 근거는 믿음의 대상인 그리스도이고, 그 의를 우리 것으로 돌리시는 분은 하나님이십니다. 루터의 말처럼 “의는 어디에 있는가? 우리 안에 없고 그리스도 안에 있다. 그것은 우리 밖, 하나님 안에 있다.”</li>
+      <li>전가는 그리스도의 의의 옷을 입는 것과 같습니다. 혼인잔치 비유의 예복처럼, 그 옷을 입어야 왕의 잔치에 들어갈 수 있습니다. <span class="ref">(마 22:11-14)</span></li>
+      <li><span class="lead">그러므로 종교개혁자들이 강조한 오직 믿음에 의한 그리스도의 의의 전가를 성경의 중요한 교훈으로 알고 계속 고수해야 합니다.</span></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2><span class="num">3</span>오직 믿음은 순종을 요청한다</h2>
+    <p>성경은 율법의 행위가 아니라 믿음으로 의롭게 된다고 가르칩니다. 그런데 야고보서는 행함으로 의롭다 하심을 받는다고 말합니다. 바울과 야고보를 통해 증언된 말씀은 서로 모순되는 것일까요?</p>
+
+    <div class="pair" role="figure" aria-label="바울과 야고보의 증언과 그 결론">
+      <div class="voices">
+        <div class="voice">
+          <span class="voice-name">바울</span>
+          <q>사람이 의롭다 하심을 얻는 것은 율법의 행위에 있지 않고 믿음으로 되는 줄 우리가 인정하노라</q>
+          <span class="ref">(롬 3:28; 갈 2:16; 롬 4:2-3; 빌 3:9)</span>
+        </div>
+        <div class="voice">
+          <span class="voice-name">야고보</span>
+          <q>사람이 행함으로 의롭다 하심을 받고 믿음으로만은 아니니라</q>
+          <span class="ref">(약 2:14, 20, 24)</span>
+        </div>
+      </div>
+      <div class="join" aria-hidden="true"><i></i><i></i></div>
+      <div class="verdict">
+        <b>둘 다 옳음</b>
+        <span>성경은 믿음과 순종을 분리하지 않습니다. 참된 믿음은 반드시 순종을 동반합니다.<br>행함은 구원의 근거나 자격이 될 수 없지만, 믿음은 반드시 행함을 수반해야 합니다.</span>
+      </div>
+    </div>
+
+    <ul>
+      <li>이신칭의를 강조하는 로마서와 갈라디아서조차 행함을 단순한 믿음의 열매가 아니라 믿음의 필수적인 요소로 강조합니다. 순종과 제자도가 결여된 믿음은 거짓된 믿음입니다.</li>
+      <li>은혜로 의롭다 함을 받았으니 마음대로 죄를 지어도 된다는 뜻이 아닙니다. 믿는 자는 죄의 종에서 의의 종이 되어 거룩함의 열매를 맺어야 합니다. <span class="ref">(롬 6:15-22)</span></li>
+      <li>“행함이 없는 믿음은 죽은 믿음”입니다. 그리스도의 생명은 말과 행동으로 드러나야 합니다. <span class="ref">(약 2:17)</span></li>
+      <li>구원받는 것도 ‘오직 믿음’으로 되며, <span class="lead">구원받은 이후의 변화된 삶도 믿음과 성령을 떠나서는 이루어질 수 없습니다.</span> 성령 안에서 하나님을 전적으로 신뢰하지 않으면 ‘오직 믿음’은 하나의 신념이 되고 맙니다.</li>
+      <li>실천의 동력은 우리 자신이 아니라 성령의 도우심에서 나와야 하며, 이를 위해 기도운동과 성령운동에 힘써야 합니다. 개혁주의생명신학은 무릎의 신학이요 가슴의 신학입니다. <span class="ref">(갈 3:3; 막 9:29)</span></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2><span class="num">4</span>오직 믿음은 기도와 축복으로 세상을 이기게 한다</h2>
+    <ul>
+      <li>예수님은 믿음을 보시고 병을 고치시고 죽은 자를 살리셨습니다. <span class="ref">(마 8:5-10; 9:1-8, 20-22; 막 10:46-52; 눅 8:50; 요 11:1-44)</span></li>
+      <li>반대로 간질 들린 자를 고치지 못한 제자들에게는 믿음이 적다고 하시며, 믿고 구하는 것은 다 받으리라고 하셨습니다. 바른 믿음은 의와 구원뿐 아니라 병 고침과 기적 같은 하나님의 축복의 통로입니다. <span class="ref">(마 17:20; 21:21-22)</span></li>
+      <li>베드로와 요한은 기도하러 성전에 올라가다 나면서부터 걷지 못한 사람을 예수 그리스도의 이름으로 일으켰습니다. 하나님은 기도 시간을 정하고 실행하는 자를 통해 기적을 베푸십니다. 루스드라에서도 바울은 구원받을 만한 믿음이 있는 사람을 보고 일으켜 세웠습니다. 믿음과 기도가 있는 곳에 능력이 나타납니다. <span class="ref">(행 3:1-16; 14:9-10; 약 5:15)</span></li>
+      <li>참된 믿음은 계속 자라며, 구원의 방편일 뿐 아니라 영적 생명력을 줍니다. <span class="ref">(히 11:6; 고후 10:15; 살전 1:3-8)</span></li>
+      <li>세상을 이기는 믿음을 가지려면 먼저 예수님을 그리스도로 바로 알아야 합니다. <span class="ref">(요일 5:1)</span> 우리 죄 때문에 십자가에서 피 흘려 죽으신 <span class="lead">그 십자가의 사랑으로</span> 우리가 세상을 이깁니다.</li>
+      <li>신학은 학문이 아닙니다. 지식으로만 배운 믿음으로는 세상을 이기지 못합니다. 세상을 이기는 믿음은 나는 죽고 예수님이 살게 하는 믿음이며, 기도의 무릎을 꿇어 육의 생각을 십자가에 못 박는 믿음입니다.</li>
+      <li>그러므로 우리의 구원도, 남은 생애도 ‘오직 믿음’으로 살아가야 합니다. <span class="ref">(히 11:1)</span></li>
+    </ul>
+  </section>
+
+  <section class="discuss">
+    <h2>토론을 위한 질문</h2>
+    <ol>
+      <li>“오직 믿음은 그리스도의 의(義) 전가에 기초한다”라는 의미를 서로 이야기 해 봅시다.</li>
+      <li>참된 믿음은 순종을 동반한다는 사실을 강조하지 않으면 자칫 ‘오직 믿음’을 악용할 가능성이 있습니다. 이와 같은 사례를 나누어 봅시다.</li>
+      <li>“오직 믿음은 기도와 축복으로 세상을 이기게 한다”라는 성경적 사건들을 이야기 해 봅시다.</li>
+    </ol>
+  </section>
+</main>
+<footer>출처: 『개혁주의생명신학』 II장 “개혁주의생명신학 5대 솔라” 중 3. “오직 믿음: 순종하는 믿음과 기도”</footer>
+</body>
+</html>
