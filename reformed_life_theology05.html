@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>오직 은혜</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;700&family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+  :root {
+    color-scheme: light;
+    --bg: #ebe4d6;
+    --paper: #f8f3e8;
+    --ink: #2a2620;
+    --muted: #6b6457;
+    --line: #ddd3c0;
+    --accent: #1f3f7a;
+    --accent-soft: #ece6d6;
+    --gold: #9a7a2e;
+    --blue-fill: #e3e7ef;
+    --sand-fill: #ece5d6;
+    --sand-line: #a39577;
+    --sand-ink: #6b5d40;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+    word-break: keep-all;
+    padding-inline: 16px;
+    padding-block: 32px 64px;
+  }
+  .sheet {
+    max-width: 760px;
+    margin: 0 auto;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: clamp(24px, 5vw, 56px);
+  }
+  header.masthead {
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 20px;
+    margin-bottom: 28px;
+    display: grid;
+    gap: 6px;
+  }
+  .eyebrow {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+  }
+  h1 {
+    font-family: "Noto Serif KR", "Nanum Myeongjo", serif;
+    font-weight: 700;
+    font-size: clamp(28px, 5vw, 38px);
+    line-height: 1.3;
+    margin: 0;
+    text-wrap: balance;
+  }
+  .subtitle {
+    font-family: "Noto Serif KR", "Nanum Myeongjo", serif;
+    font-size: clamp(18px, 3.2vw, 21px);
+    font-weight: 500;
+    color: var(--accent);
+    margin: 0;
+  }
+  .source {
+    font-size: 14px;
+    color: var(--muted);
+    margin: 0;
+  }
+  .thesis {
+    background: var(--accent-soft);
+    border-radius: 4px;
+    padding: 18px 22px;
+    margin: 0 0 36px;
+  }
+  .thesis strong { color: var(--accent); }
+
+  h2 {
+    font-family: "Noto Serif KR", "Nanum Myeongjo", serif;
+    font-size: 22px;
+    font-weight: 700;
+    margin: 40px 0 16px;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    text-wrap: balance;
+  }
+  h2 .num {
+    font-size: 15px;
+    color: var(--gold);
+    font-family: "Noto Sans KR", sans-serif;
+    font-weight: 700;
+  }
+  p { margin: 0 0 12px; }
+  ul { margin: 0 0 12px; padding-left: 1.2em; display: grid; gap: 8px; }
+  li::marker { color: var(--accent); }
+  .lead { font-weight: 700; }
+  .ref { color: var(--muted); font-size: 14px; white-space: nowrap; }
+
+  /* 삼위 하나님의 은혜 */
+  .trinity {
+    margin: 16px 0 20px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 16px;
+    display: grid;
+    gap: 12px;
+  }
+  .tri-title, .cf-title {
+    font-family: "Noto Serif KR", "Nanum Myeongjo", serif;
+    font-weight: 700;
+    font-size: 17px;
+    color: var(--accent);
+    text-align: center;
+  }
+  .persons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  .person {
+    background: var(--blue-fill);
+    border: 1.5px solid var(--accent);
+    border-radius: 6px;
+    padding: 12px 12px;
+    display: grid;
+    gap: 4px;
+    align-content: start;
+  }
+  .person b {
+    font-family: "Noto Serif KR", "Nanum Myeongjo", serif;
+    font-size: 18px;
+    color: var(--accent);
+  }
+  .person .verb { font-weight: 700; font-size: 15px; }
+  .person .desc { font-size: 14px; line-height: 1.6; }
+  .person .ref { white-space: normal; font-size: 13px; }
+  .down {
+    text-align: center;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 1;
+  }
+  .results {
+    background: var(--paper);
+    border: 2px solid var(--gold);
+    border-radius: 6px;
+    padding: 10px 14px;
+    display: grid;
+    gap: 2px;
+    text-align: center;
+  }
+  .res-label { font-size: 13px; font-weight: 700; letter-spacing: 0.08em; color: var(--gold); }
+  .res-items { font-weight: 700; font-size: 15.5px; }
+  .tri-foot { font-size: 14px; color: var(--muted); text-align: center; margin: 0; }
+
+  /* 선행: 조건인가 열매인가 */
+  .cf { margin: 16px 0 20px; display: grid; gap: 0; }
+  .cf-title { margin-bottom: 10px; }
+  .cf-box {
+    border-radius: 6px;
+    padding: 14px 16px;
+    display: grid;
+    gap: 6px;
+  }
+  .cf-head { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+  .cf-mark {
+    font-weight: 700;
+    font-size: 15px;
+    border-radius: 4px;
+    padding: 0 8px;
+  }
+  .cf-name {
+    font-family: "Noto Serif KR", "Nanum Myeongjo", serif;
+    font-weight: 700;
+    font-size: 18px;
+  }
+  .cf-box p { margin: 0; font-size: 15px; line-height: 1.7; }
+  .cf-box .ref { white-space: normal; }
+  .cf-box.no { background: var(--sand-fill); border: 1.5px dashed var(--sand-line); }
+  .cf-box.no .cf-name { color: var(--sand-ink); text-decoration: line-through; text-decoration-thickness: 1.5px; }
+  .cf-box.no .cf-mark { background: var(--sand-line); color: var(--paper); }
+  .cf-box.yes { background: var(--blue-fill); border: 1.5px solid var(--accent); }
+  .cf-box.yes .cf-name { color: var(--accent); }
+  .cf-box.yes .cf-mark { background: var(--accent); color: var(--paper); }
+  .cf-axis {
+    display: grid;
+    place-items: center;
+    height: 52px;
+    position: relative;
+  }
+  .cf-axis::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 0; bottom: 0;
+    border-left: 2px solid var(--gold);
+  }
+  .cf-axis span {
+    position: relative;
+    background: var(--paper);
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    border-radius: 999px;
+    padding: 2px 14px;
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  @media (max-width: 560px) {
+    .persons { grid-template-columns: 1fr; }
+  }
+
+  .discuss {
+    margin-top: 44px;
+    border-top: 1px solid var(--line);
+    padding-top: 8px;
+  }
+  .discuss ol {
+    margin: 0;
+    padding-left: 1.4em;
+    display: grid;
+    gap: 14px;
+  }
+  .discuss li::marker { color: var(--gold); font-weight: 700; }
+  footer {
+    max-width: 760px;
+    margin: 20px auto 0;
+    font-size: 13px;
+    color: var(--muted);
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+<main class="sheet">
+  <header class="masthead">
+    <span class="eyebrow">백석대학교 교수 콜로키움 연수 · 2026년 2학기</span>
+    <h1>오직 은혜</h1>
+    <p class="subtitle">용서와 화해의 복음</p>
+    <p class="source">『개혁주의생명신학』(표준교과서) 5대 솔라 ④ “오직 은혜” 요약</p>
+  </header>
+
+  <p class="thesis"><strong>핵심 명제.</strong> 종교개혁자들은 중세교회의 공로주의를 반대하고 은혜를 강조했습니다. <strong>은혜는 하나의 교리가 아니라 하나님이 베푸시는 실제입니다.</strong> 은혜를 받은 사람은 그 은혜를 헛되지 않게 살며, 다른 사람을 용서하고, 장벽을 허물고 하나 되라는 화해의 명령에 순종하며, 자기 것을 거저 줄 수 있게 됩니다.</p>
+
+  <p>구원은 하나님의 선물이므로 자력 구원은 있을 수 없습니다. 착하게 살아서가 아니라, 하나님이 제시하신 유일한 길인 예수 그리스도를 믿고 순종함으로 ‘오직 은혜’(sola gratia)로 천국에 갑니다. <span class="ref">(엡 2:7-9)</span></p>
+
+  <section>
+    <h2><span class="num">1</span>구원은 하나님의 전적인 은혜다</h2>
+    <ul>
+      <li>‘오직 은혜’란 믿음과 구원을 포함한 모든 것이 하나님의 은혜라는 뜻입니다. 종교개혁자들은 중세교회에서 잊힌 어거스틴의 은혜의 신학을 재발견했고, 은혜는 이신칭의의 토대가 됩니다. <span class="ref">(시 103:8; 엡 2:8; 고전 15:10)</span></li>
+      <li>양심에 따라 선하게 살거나 구약의 율법을 지켜서는 구원받지 못합니다. 오직 그리스도를 믿음으로 구원을 얻습니다. <span class="ref">(롬 3:19-28; 갈 2:16; 요 14:6)</span></li>
+      <li>어떤 인간의 공로나 지위, 제도도 구원에 끼어들 수 없습니다. 좋은 목회자도 성도 구원의 중보자 자리에 설 수 없습니다. 중보자는 한 분 예수 그리스도뿐입니다. <span class="ref">(히 12:24)</span></li>
+    </ul>
+
+    <div class="cf" role="figure" aria-label="선행은 구원의 조건이 아니라 구원의 열매">
+      <div class="cf-title">선행은 구원의 조건인가, 열매인가</div>
+      <div class="cf-box no">
+        <div class="cf-head"><span class="cf-mark">×</span><span class="cf-name">구원의 조건</span></div>
+        <p>성도의 윤리적 행위를 독려하려는 의도라 해도, 선행이 구원의 조건이고 악행이 구원을 ‘취소’한다는 <strong>행위 구원론</strong>은 받아들일 수 없습니다. 하나님의 택하심과 부르심에는 후회하심이 없기 때문입니다. <span class="ref">(롬 11:29; 벧후 1:10)</span></p>
+      </div>
+      <div class="cf-axis" aria-hidden="true"><span>선행은 어디에 놓이는가</span></div>
+      <div class="cf-box yes">
+        <div class="cf-head"><span class="cf-mark">○</span><span class="cf-name">구원의 열매</span></div>
+        <p>성도의 선한 행실은 구원의 열매이지 조건이 아닙니다. <span class="ref">(엡 2:10)</span> 열매가 없다면 처음부터 영적 생명이 아니었음을 드러낼 뿐입니다. <span class="ref">(약 2:14-26)</span> 그러므로 우리의 믿음은 은혜로 주신 구원에 합당한 열매로 드러나고 증명되어야 합니다.</p>
+      </div>
+    </div>
+
+    <ul>
+      <li>은혜의 구원은 인간의 전적 타락과 짝을 이룹니다. 인간은 영적, 지적, 의지적, 정서적 모든 면에서 타락하여 스스로 구원을 얻을 가능성이 없습니다. <span class="ref">(롬 5:12; 엡 4:18, 24)</span></li>
+      <li>구원은 삼위 하나님의 은혜의 선물입니다. 성도의 순종은 그 아들의 순종으로 구원을 얻은 결과이지 원인이 아닙니다.</li>
+    </ul>
+
+    <div class="trinity" role="figure" aria-label="삼위 하나님의 은혜의 선물과 그 결과">
+      <div class="tri-title">삼위 하나님의 은혜의 선물</div>
+      <div class="persons">
+        <div class="person">
+          <b>성부</b>
+          <span class="verb">계획하심</span>
+          <span class="desc">창세전부터 뜻을 품으셨습니다. 성부께서 뜻하지 않으셨다면 구원은 없습니다.</span>
+          <span class="ref">(엡 3:11; 약 1:18; 벧전 1:2-4)</span>
+        </div>
+        <div class="person">
+          <b>성자</b>
+          <span class="verb">순종하심</span>
+          <span class="desc">아버지의 뜻에 순종하여 십자가에서 죽기까지 복종하셨습니다.</span>
+          <span class="ref">(빌 2:6-8)</span>
+        </div>
+        <div class="person">
+          <b>성령</b>
+          <span class="verb">적용하심</span>
+          <span class="desc">그리스도께서 성취하신 구속의 효력을 신자에게 적용하십니다.</span>
+          <span class="ref">(벧전 1:2-3)</span>
+        </div>
+      </div>
+      <div class="down" aria-hidden="true">↓</div>
+      <div class="results">
+        <span class="res-label">그 결과</span>
+        <span class="res-items">칭의와 중생 · 회개와 믿음 · 그 믿음의 결과인 순종과 선한 열매</span>
+      </div>
+      <p class="tri-foot">성부의 의지, 성자의 순종, 성령의 거룩하게 하심으로 이루어지는 은혜의 선물입니다.</p>
+    </div>
+
+    <ul>
+      <li>하나님이 정하시고 행하시는 것이 공평입니다. 인간은 심판주가 아니며, 이미 법을 어긴 죄인에게는 심판과 형벌이 공정하고 죄의 용서와 구원은 오히려 불공평한 것입니다. 그래서 사망이 선고된 죄인에게 구원은 <span class="lead">‘불공평한 은혜의 선물’</span>입니다. 구원은 일한 대가로 받는 삯이 아니라 하나님의 뜻과 긍휼의 결과입니다. <span class="ref">(롬 9:13-15; 약 4:12; 마 20:1-16)</span></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2><span class="num">2</span>하나님의 은혜를 헛되이 하지 말아야 한다</h2>
+    <ul>
+      <li>구원이 은혜의 선물이라면 아무렇게나 살아도 된다는 오해와 악용은 늘 있어 왔습니다. 그러나 그리스도와 연합한 자가 그 생명과 거룩 없이 산다는 것은 자기기만입니다. 은혜는 경건과 선한 일을 통해 참 백성을 만들기 위해 주어졌습니다. <span class="ref">(롬 5:20; 유 4; 딛 2:11-14)</span></li>
+      <li>오늘날 교회는 세속적 욕망과 헛된 영광의 포로가 되었습니다. 말로는 오직 성경과 정통 교리를 지킨다면서 실제로는 탐욕과 헛된 영광을 위한 분열을 계속하고, 은혜의 증거인 회개와 용서와 화평의 삶은 찾아보기 어렵습니다.</li>
+      <li>서로 다투는 이유는 교만 때문이고, 교만은 모든 것이 은혜임을 인정하지 못하는 데서 나옵니다. <span class="ref">(고전 4:7)</span></li>
+      <li>‘오직 은혜’를 외치는 데서 끝나지 말고, 자기를 부인하고 서로 용서하고 화목해야 합니다. 대가를 기대하지 않고 감사하며 일하는 일꾼이 되어야 합니다.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2><span class="num">3</span>거저 받았으니 거저 주어야 한다</h2>
+    <ul>
+      <li>‘오직 은혜’의 핵심은 놀라운 구원을 거저 받았다는 데 있습니다. 성부의 주권적 의지, 성자의 철저한 순종, 성령의 말할 수 없는 탄식의 긍휼이 아니었다면 아무도 거듭난 생명을 얻을 수 없습니다. <span class="ref">(벧전 1:2)</span> 은혜 안에 거하는 성도는 반드시 그 증거를 삶의 열매로 맺습니다. 열매를 보아 나무를 압니다.</li>
+      <li>먼저 생명의 복음을 나누고, 물질을 포함한 모든 것, 생명까지라도 나누어야 합니다. 하나님께서 아들을 내어 주셨으니 우리도 조건 없이 드려야 합니다. <span class="ref">(롬 6:13; 12:1)</span></li>
+      <li>은혜 받은 성도가 드릴 수 있는 가장 큰 헌신은 <span class="lead">용서와 화목</span>입니다. 용서하지 못하는 것은 내가 심판주의 자리에 앉으려 하기 때문입니다. 일만 달란트를 탕감받고도 백 데나리온 빚진 동료의 멱살을 잡은 종이 내가 아닌지 돌아보아야 합니다. <span class="ref">(약 4:12; 마 6:12; 18:21-35)</span></li>
+      <li>진심 어린 용서는 기도의 무릎을 꿇지 않고는 불가능합니다. 모든 심판을 주께 맡기고, 성령께서 용서할 마음과 능력을 주시도록 기도해야 합니다. <span class="ref">(약 4:10; 롬 12:19; 벧전 2:23)</span></li>
+      <li>화해는 그리스도인의 특권이요 의무입니다. 오늘날처럼 교회가 분열된 때가 없었습니다. 주께서 자신을 화목제물로 내어 주셔서 우리를 하나님과 화목하게 하셨듯, 우리도 십자가 앞에서 자기를 부인하지 않으면 형제와 화목할 수 없습니다. 그리스도인의 연합은 제자 됨의 증거이며, 성령께서 우리 안에 역사하시는 확실한 증거입니다. <span class="ref">(고후 5:18; 요 13:35; 17:23; 롬 3:25)</span></li>
+      <li>은혜는 남용하라고 주신 것이 아닙니다. <span class="lead">우리의 믿음은 오직 은혜로 주신 구원에 합당한 열매로 드러나고 증명되어야 합니다.</span> <span class="ref">(딛 2:11-14; 롬 8:1-6; 갈 6:8)</span></li>
+      <li>구원을 끝까지 온전히 이루어 가시는 분은 우리를 택하시고 부르신 ‘모든 은혜의 하나님’이십니다. 우리는 오직 은혜로 구원을 얻고, 이루어 가며, 온전히 이룹니다. <span class="ref">(롬 8:38-39; 히 4:15-16; 벧전 5:10)</span></li>
+    </ul>
+  </section>
+
+  <section class="discuss">
+    <h2>토론을 위한 질문</h2>
+    <ol>
+      <li>“종교개혁자들이 중세교회의 공로주의를 반대하고 은혜를 강조한다”라는 의미를 서로 이야기 해 봅시다.</li>
+      <li>구원이 전적으로 하나님의 은혜의 선물이라는 사실을 오해하거나 악용할 위험은 항상 있습니다. 이와 같은 사례를 나누어 봅시다.</li>
+      <li>“오직 은혜로 구원 받은 사람은 삶의 열매를 맺어야 한다” 라는 의미를 서로 이야기 해 봅시다.</li>
+    </ol>
+  </section>
+</main>
+<footer>출처: 『개혁주의생명신학』 II장 “개혁주의생명신학 5대 솔라” 중 4. “오직 은혜: 용서와 화해의 복음”</footer>
+</body>
+</html>
