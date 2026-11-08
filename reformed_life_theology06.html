@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>오직 하나님께 영광</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;700&family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+  :root {
+    color-scheme: light;
+    --bg: #ebe4d6;
+    --paper: #f8f3e8;
+    --ink: #2a2620;
+    --muted: #6b6457;
+    --line: #ddd3c0;
+    --accent: #1f3f7a;
+    --accent-soft: #ece6d6;
+    --gold: #9a7a2e;
+    --blue-fill: #e3e7ef;
+    --sand-fill: #ece5d6;
+    --sand-line: #a39577;
+    --sand-ink: #6b5d40;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+    word-break: keep-all;
+    padding-inline: 16px;
+    padding-block: 32px 64px;
+  }
+  .sheet {
+    max-width: 760px;
+    margin: 0 auto;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: clamp(24px, 5vw, 56px);
+  }
+  header.masthead {
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 20px;
+    margin-bottom: 28px;
+    display: grid;
+    gap: 6px;
+  }
+  .eyebrow {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+  }
+  h1 {
+    font-family: "Noto Serif KR", "Nanum Myeongjo", serif;
+    font-weight: 700;
+    font-size: clamp(28px, 5vw, 38px);
+    line-height: 1.3;
+    margin: 0;
+    text-wrap: balance;
+  }
+  .subtitle {
+    font-family: "Noto Serif KR", "Nanum Myeongjo", serif;
+    font-size: clamp(18px, 3.2vw, 21px);
+    font-weight: 500;
+    color: var(--accent);
+    margin: 0;
+  }
+  .source {
+    font-size: 14px;
+    color: var(--muted);
+    margin: 0;
+  }
+  .thesis {
+    background: var(--accent-soft);
+    border-radius: 4px;
+    padding: 18px 22px;
+    margin: 0 0 36px;
+  }
+  .thesis strong { color: var(--accent); }
+
+  h2 {
+    font-family: "Noto Serif KR", "Nanum Myeongjo", serif;
+    font-size: 22px;
+    font-weight: 700;
+    margin: 40px 0 16px;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    text-wrap: balance;
+  }
+  h2 .num {
+    font-size: 15px;
+    color: var(--gold);
+    font-family: "Noto Sans KR", sans-serif;
+    font-weight: 700;
+  }
+  p { margin: 0 0 12px; }
+  ul { margin: 0 0 12px; padding-left: 1.2em; display: grid; gap: 8px; }
+  li::marker { color: var(--accent); }
+  .lead { font-weight: 700; }
+  .ref { color: var(--muted); font-size: 14px; white-space: nowrap; }
+
+  /* 네 솔라를 묶는 지붕 */
+  .arch {
+    margin: 16px 0 28px;
+    display: grid;
+    gap: 0;
+  }
+  .roof {
+    background: var(--accent);
+    color: var(--paper);
+    border-radius: 6px 6px 2px 2px;
+    padding: 14px 16px;
+    text-align: center;
+    display: grid;
+    gap: 2px;
+  }
+  .roof b {
+    font-family: "Noto Serif KR", "Nanum Myeongjo", serif;
+    font-size: 21px;
+  }
+  .roof .latin { font-size: 13px; letter-spacing: 0.08em; opacity: 0.85; }
+  .roof .role { font-size: 14.5px; }
+  .pillars {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    padding: 8px 8px 0;
+  }
+  .pillar {
+    background: var(--blue-fill);
+    border: 1.5px solid var(--accent);
+    border-top: 0;
+    padding: 12px 10px 14px;
+    display: grid;
+    gap: 4px;
+    align-content: start;
+  }
+  .pillar b {
+    font-family: "Noto Serif KR", "Nanum Myeongjo", serif;
+    font-size: 16px;
+    color: var(--accent);
+  }
+  .pillar span { font-size: 13.5px; line-height: 1.6; }
+  .plinth {
+    background: var(--sand-fill);
+    border: 1.5px solid var(--sand-line);
+    border-radius: 2px 2px 6px 6px;
+    padding: 10px 14px;
+    text-align: center;
+    font-size: 14.5px;
+    color: var(--sand-ink);
+  }
+  .plinth .ref { color: var(--sand-ink); }
+
+  /* 소금과 빛 */
+  .sl { margin: 16px 0 24px; display: grid; gap: 0; }
+  .sl-title {
+    font-family: "Noto Serif KR", "Nanum Myeongjo", serif;
+    font-weight: 700;
+    font-size: 17px;
+    color: var(--accent);
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  .sl-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .sl-col {
+    border: 1.5px solid var(--accent);
+    border-radius: 6px;
+    padding: 14px 16px;
+    display: grid;
+    gap: 8px;
+    align-content: start;
+    background: var(--blue-fill);
+  }
+  .sl-name {
+    font-family: "Noto Serif KR", "Nanum Myeongjo", serif;
+    font-weight: 700;
+    font-size: 19px;
+    color: var(--accent);
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .sl-name .ref { font-family: "Noto Sans KR", sans-serif; font-weight: 400; }
+  .sl-col dl { margin: 0; display: grid; gap: 8px; }
+  .sl-col dt { font-size: 12.5px; font-weight: 700; letter-spacing: 0.06em; color: var(--gold); }
+  .sl-col dd { margin: 0; font-size: 14.5px; line-height: 1.65; }
+  .sl-join {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 30px;
+  }
+  .sl-join i { border-left: 2px solid var(--gold); border-bottom: 2px solid var(--gold); margin-left: 50%; }
+  .sl-join i:last-child { border-left: 0; border-right: 2px solid var(--gold); margin-left: 0; margin-right: 50%; }
+  .sl-goal {
+    border: 2px solid var(--gold);
+    border-radius: 6px;
+    padding: 12px 16px;
+    text-align: center;
+    display: grid;
+    gap: 4px;
+  }
+  .sl-goal b {
+    font-family: "Noto Serif KR", "Nanum Myeongjo", serif;
+    font-size: 17px;
+    color: var(--gold);
+  }
+  .sl-goal span { font-size: 15px; line-height: 1.65; }
+
+  @media (max-width: 600px) {
+    .pillars { grid-template-columns: 1fr 1fr; }
+    .pillar { border-top: 1.5px solid var(--accent); border-radius: 4px; }
+  }
+  @media (max-width: 560px) {
+    .sl-cols { grid-template-columns: 1fr; }
+    .sl-join { grid-template-columns: 1fr; height: 22px; }
+    .sl-join i { border-bottom: 0; }
+    .sl-join i:last-child { display: none; }
+  }
+
+  .discuss {
+    margin-top: 44px;
+    border-top: 1px solid var(--line);
+    padding-top: 8px;
+  }
+  .discuss ol {
+    margin: 0;
+    padding-left: 1.4em;
+    display: grid;
+    gap: 14px;
+  }
+  .discuss li::marker { color: var(--gold); font-weight: 700; }
+  footer {
+    max-width: 760px;
+    margin: 20px auto 0;
+    font-size: 13px;
+    color: var(--muted);
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+<main class="sheet">
+  <header class="masthead">
+    <span class="eyebrow">백석대학교 교수 콜로키움 연수 · 2026년 2학기</span>
+    <h1>오직 하나님께 영광</h1>
+    <p class="subtitle">희생과 봉사의 삶</p>
+    <p class="source">『개혁주의생명신학』(표준교과서) 5대 솔라 ⑤ “오직 하나님께 영광” 요약</p>
+  </header>
+
+  <p class="thesis"><strong>핵심 명제.</strong> 구원과 삶이 모두 하나님의 은혜로 된 것이므로 모든 영광은 하나님이 받으셔야 한다는 것이 종교개혁자들, 특히 칼빈의 사상이었습니다. 「개혁주의생명신학 선언문」은 구원받은 신자가 영광을 돌리는 방법에 주목합니다. 예수님을 본받아 <strong>희생과 봉사의 삶</strong>으로 영광을 돌리고, 삶의 모든 영역에서 하나님의 주권과 이름이 드러나도록 기도하고 실천하는 것입니다. 하나님은 세세토록 영광을 받으시고, 현세와 미래에 그 영광을 우리에게 나눠 주시겠다고 약속하셨습니다.</p>
+
+  <p>‘오직 하나님께 영광’(soli Deo gloria)은 오직 성경, 오직 그리스도, 오직 믿음, 오직 은혜를 하나로 묶어 주는 성경의 원리입니다. 구원은 하나님이 시작하시고 완성하시는 일이므로, 구원받은 우리의 최종 목적은 ‘오직 하나님께 영광’입니다.</p>
+
+  <div class="arch" role="figure" aria-label="오직 하나님께 영광이 네 솔라를 하나로 묶는 구조">
+    <div class="roof">
+      <b>오직 하나님께 영광</b>
+      <span class="latin">SOLI DEO GLORIA</span>
+      <span class="role">네 솔라를 하나로 묶는 성경의 원리 · 우리 삶의 목적</span>
+    </div>
+    <div class="pillars">
+      <div class="pillar"><b>오직 성경</b><span>66권 성경만이 하나님의 영감으로 기록된 신앙과 삶의 유일한 표준</span></div>
+      <div class="pillar"><b>오직 그리스도</b><span>그리스도만이 하나님과 우리 사이의 중보자이자 구원자</span></div>
+      <div class="pillar"><b>오직 믿음</b><span>그리스도를 믿음으로만 영생, 곧 구원을 얻음</span></div>
+      <div class="pillar"><b>오직 은혜</b><span>믿음과 구원을 포함한 모든 것이 하나님의 은혜로 주어짐</span></div>
+    </div>
+    <div class="plinth">구원은 하나님께서 시작하시고 하나님께서 완성하시는 일 <span class="ref">(롬 14:8)</span></div>
+  </div>
+
+  <section>
+    <h2><span class="num">1</span>우리 삶의 목적은 ‘오직 하나님께 영광’이다</h2>
+    <ul>
+      <li>오직 성경을 최종 권위로 인정할 때 인간의 교만이 하나님의 영광을 가리는 일을 막을 수 있습니다. 그리스도의 속죄와 순종만으로 구원에 충분하지 않다고 생각한다면 하나님께 감사와 영광을 온전히 돌릴 수 없습니다. 그러므로 네 솔라를 바르게 실천해야 합니다.</li>
+      <li>웨스트민스터 소요리문답 제1문답대로 사람의 제일 되는 목적은 하나님을 영화롭게 하고 영원토록 그를 즐거워하는 것입니다. 오직 하나님만이 홀로 거룩하시고 영광 받으실 분이기 때문입니다. <span class="ref">(사 6:1-3; 롬 11:33-36)</span></li>
+      <li>루터는 인간의 사변적 이성으로 하나님의 영광을 직접 파악할 수 있다는 중세교회의 ‘영광의 신학’을 비판했습니다. 그에게 신학은 “학문이라기보다 지혜”, 곧 말씀을 삶 속에서 체험하는 것이었습니다. 하나님을 아는 지식의 주도권은 인간이 아니라 말씀하시는 하나님께 있습니다.</li>
+      <li>가장 신비로운 계시는 그리스도의 십자가와 부활입니다. 하나님은 인간이 상상할 수 없이 낮은 십자가를 통해 영광을 나타내셨으므로, 루터는 <span class="lead">‘십자가의 신학’만이 하나님의 영광을 온전히 드러낸다</span>고 보았습니다. <span class="ref">(고전 1:23-24)</span></li>
+      <li>성자는 성육신과 십자가와 부활로 성부의 영광을 나타내셨고, 성령은 그리스도를 다시 살리셔서 영화롭게 하셨습니다. <span class="ref">(요 1:14; 14:9, 13; 히 1:3; 롬 1:4; 히 9:14)</span></li>
+      <li>우리가 영광을 나타내는 방식도 예수님과 같습니다. 십자가의 고난과 부활의 승리를 통해, 말씀에 순종하며 그리스도를 왕과 주로 인정하는 삶으로 영광을 돌립니다. 하나님의 말씀이 우리 삶을 다스릴 때 하나님께 온전히 영광을 돌릴 수 있습니다.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2><span class="num">2</span>예수님을 본받아 우리도 세상의 소금이 되어야 한다</h2>
+
+    <div class="sl" role="figure" aria-label="세상의 소금과 빛, 그리고 그 목적">
+      <div class="sl-title">제자 된 우리는 세상의 소금과 빛</div>
+      <div class="sl-cols">
+        <div class="sl-col">
+          <span class="sl-name">소금 <span class="ref">(마 5:13; 막 9:50)</span></span>
+          <dl>
+            <div><dt>사명</dt><dd>부패한 세상이 썩지 않도록 지킵니다.</dd></div>
+            <div><dt>우리 안에 둘 소금</dt><dd>교만 대신 겸손, 시기와 질투 대신 사랑, 서로 섬기며 화목함</dd></div>
+            <div><dt>맛을 잃으면</dt><dd>밖에 버려져 밟히고, 하나님의 이름이 조롱받습니다.</dd></div>
+          </dl>
+        </div>
+        <div class="sl-col">
+          <span class="sl-name">빛 <span class="ref">(마 5:14; 요 1:4-9)</span></span>
+          <dl>
+            <div><dt>사명</dt><dd>죄로 어두워진 세상에 빛이신 예수님을 증언하여 영혼을 살립니다.</dd></div>
+            <div><dt>보내신 자리</dt><dd>직장과 학교. 모든 믿는 자는 그곳에 보내진 거룩한 제사장입니다. <span class="ref">(벧전 2:5)</span></dd></div>
+            <div><dt>본받을 분</dt><dd>참 빛이신 그리스도. 박해하는 자도 그리스도의 사랑으로 품습니다.</dd></div>
+          </dl>
+        </div>
+      </div>
+      <div class="sl-join" aria-hidden="true"><i></i><i></i></div>
+      <div class="sl-goal">
+        <b>그 목적: 하나님께 영광</b>
+        <span>“이같이 너희 빛이 사람 앞에 비치게 하여 그들로 너희 착한 행실을 보고 하늘에 계신 너희 아버지께 영광을 돌리게 하라” <span class="ref">(마 5:16)</span></span>
+      </div>
+    </div>
+
+    <ul>
+      <li>하나님께 드리는 제물에는 소금을 쳐야 합니다. 우리 자신이 하나님이 기뻐하시는 산 제물이 되려면 우리 안에 소금이 있어야 합니다. <span class="ref">(막 9:50; 레 2:13; 롬 12:1)</span></li>
+      <li>소금을 둔다는 것은 교만 대신 겸손, 시기와 질투 대신 사랑을 품는 것입니다. 연약한 자에게 걸림돌이 되지 않고, 첫째가 되려면 섬기는 자가 되어야 합니다. 분쟁과 다툼은 교만하고 부패한 본성에서 나옵니다. <span class="ref">(막 9:34-35, 42; 롬 15:1-2; 벧전 5:3-4)</span></li>
+      <li>그리스도인이 소금의 정체성을 잃으면 세상이 교회를 조롱하고 하나님의 이름이 가려집니다. 한국교회의 세속화는 소금의 사명을 감당하지 못한 결과이며, 교회의 분열은 부패한 본성이 드러난 결과입니다. <span class="ref">(마 5:13)</span></li>
+      <li>세상이 하나님께 영광을 돌리게 하는 것은 우리의 착한 행실, 희생과 봉사의 삶, 곧 성령의 열매입니다. 예수님의 희생을 본받아 <span class="lead">참을 수 없는 것을 참고, 용서할 수 없는 것을 용서하고, 사랑할 수 없는 것을 사랑하고, 덮을 수 없는 것을 덮어야</span> 합니다. 정치, 경제, 사회, 문화, 교육, 예술 모든 영역에서 그래야 합니다. <span class="ref">(마 5:14-16)</span></li>
+      <li>교회는 성도들이 일터에서 소금 역할을 하도록 기도하고 구체적으로 지원해야 합니다. 죄악과 부패와 싸우며 선한 것을 보존하는 일은 말씀과 성령 안에서 살지 않으면 할 수 없습니다.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2><span class="num">3</span>예수님을 본받아 우리도 세상의 빛이 되어야 한다</h2>
+    <ul>
+      <li>세상의 빛이신 예수님을 증언하여, 복음 전파로 죽어 가는 영혼을 살리는 것이 빛이 되는 길입니다. <span class="ref">(요 1:4-9; 20:21)</span></li>
+      <li>중세교회는 사제와 수도사만 일류 그리스도인으로 보고 평신도의 직업을 얕보았습니다. 루터는 모든 직업을 하나님의 부르심으로, 모든 믿는 자를 거룩한 제사장으로 보았습니다. 우리는 직장에 보내진 제사장입니다. <span class="ref">(벧전 2:5)</span></li>
+      <li>개혁주의생명신학은 우리가 세상 모든 분야에서 그리스도의 주 되심을 실현하도록 파송된 대리자임을 가르칩니다. 어디서 일하든 그곳의 사람들을 하나님의 백성으로 만들고, 그 분야가 하나님의 법에 따라 다스려지도록 노력할 책임이 있습니다.</li>
+      <li>그리스도를 본받을 때 분열과 다툼을 그칠 수 있습니다. 한국교회 분열의 해결은 잘잘못을 따지기 전에 스스로 죄를 자백하고 회개하는 데 있으며, 이는 예수님 안에서만 가능합니다. 그리스도께서 우리를 받으신 것처럼 서로의 허물을 사랑으로 덮고 용납해야 합니다. <span class="ref">(롬 15:5-7; 12:2)</span></li>
+      <li>죄인 중의 괴수였던 바울을 예수님은 오래 참으셨고, 그 사랑을 깨달은 바울은 자신을 박해하는 동족을 위해 저주받기까지 원했습니다. 교회가 사회적으로 지탄받는 현실에서도 <span class="lead">박해하는 자를 긍휼히 여기고 그리스도의 사랑으로 품어야</span> 합니다. 위기는 세상의 박해가 아니라 우리가 예수님을 본받지 않기 때문에 옵니다. <span class="ref">(딤전 1:15-17; 롬 9:3; 마 5:44)</span></li>
+      <li>디모데처럼 말과 행실과 사랑과 믿음과 정절에서 본이 되어야 합니다. 영적 지도자의 능력은 세상이 인정하는 능력이 아니라 “하나님을 두려워하며 진실하며 불의한 이익을 미워하는” 영적 능력입니다. 한국교회가 하나님을 두려워하고, 하나님과 세상 앞에 진실해야 합니다. <span class="ref">(딤전 4:12; 출 18:21-22)</span></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2><span class="num">4</span>우리는 자신의 힘으로 제자의 삶을 살 수 없다</h2>
+    <ul>
+      <li>제자의 삶은 말씀이 우리를 지배해야 가능합니다. 개혁주의신학을 아무리 외쳐도 실천하지 못하는 것은 우리 안에 그리스도의 생명이 없기 때문입니다. 자아를 십자가에 못 박아야 합니다. <span class="ref">(갈 2:20; 롬 6:6, 11)</span></li>
+      <li>제자의 삶은 십자가의 고난을 지는 삶이지만, 잠시 받는 가벼운 고난은 장차 나타날 지극히 크고 영원한 영광과 비교할 수 없습니다. 믿음의 눈으로 보이지 않는 영광을 바라보며 고난을 넉넉히 이깁니다. <span class="ref">(고후 11:24-27; 딤후 1:7-8; 롬 8:18; 고후 4:17-18; 히 11:1; 벧전 5:1)</span></li>
+      <li>무엇을 하든 하나님의 영광을 위해 하고, 자기 유익이 아닌 많은 사람의 유익을 구해야 합니다. 이는 자기희생을 동반합니다. <span class="ref">(고전 10:31-33; 눅 9:23)</span></li>
+      <li>‘오직 하나님께 영광’은 머리로만 이해해서는 안 됩니다. <span class="lead">철저한 자기부인과 회개가 선행될 때만</span> 열매를 맺습니다. 인간을 극도로 높이고 찬양하는 이 시대에, 하나님께 영광을 돌리는 것은 자기 십자가를 지는 사람만 할 수 있습니다. <span class="ref">(마 3:8)</span></li>
+      <li>분열이 죄인 줄 알면서 하나 되지 못하고, 세속화를 말하면서 회개하지 못하는 것은 입으로는 개혁을 외치면서 십자가를 지지 않기 때문입니다. 굶주린 자를 먹이고 헐벗은 자를 입히고 신음하는 자를 위로할 때, 곧 그리스도의 생명을 나눌 때 하나님께 영광이 됩니다.</li>
+      <li>주께서 영광의 보좌에 앉아 만물을 새롭게 하시는 날, 우리는 그 발 앞에 면류관을 벗어 드리며 영원히 찬양할 것입니다. 이 소망을 품을 때만 그리스도를 본받아 희생과 봉사의 삶을 온전히 살 수 있습니다. <span class="lead">사나 죽으나 오직 하나님께 영광!</span> <span class="ref">(마 19:28; 계 4:10-11)</span></li>
+    </ul>
+  </section>
+
+  <section class="discuss">
+    <h2>토론을 위한 질문</h2>
+    <ol>
+      <li>“‘오직 하나님께 영광’은 우리 삶의 목적입니다” 라는 의미를 서로 이야기 해 봅시다.</li>
+      <li>우리가 ‘세상의 소금이요 빛’이라는 의미를 서로 이야기 해 봅시다.</li>
+      <li>하나님의 영광을 위해 사는 제자의 삶은 십자가의 고난을 짊어지는 삶입니다. 구체적인 사례가 있다면 이야기 해 봅시다.</li>
+    </ol>
+  </section>
+</main>
+<footer>출처: 『개혁주의생명신학』 II장 “개혁주의생명신학 5대 솔라” 중 5. “오직 하나님께 영광: 희생과 봉사의 삶”</footer>
+</body>
+</html>
