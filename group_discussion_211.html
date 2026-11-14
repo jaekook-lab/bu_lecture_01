@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>우리 안의 탐욕 · 소그룹 토론</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=IBM+Plex+Sans+KR:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --paper: #ffffff;
+    --ink:      #1b1b18;
+    --ink-soft: #59564d;
+    --ink-faint:#8a8778;
+    --accent:   #3f5c46;
+    --line:     #e3e0d5;
+  }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans KR', sans-serif;
+    font-weight: 400;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 4.5rem 1.75rem 5rem;
+  }
+
+  /* ── META ROW ── */
+  .meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: .82rem;
+    color: var(--ink-faint);
+    padding-bottom: 1.1rem;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 3rem;
+  }
+  .meta strong {
+    color: var(--ink-soft);
+    font-weight: 500;
+  }
+
+  /* ── TITLE ── */
+  h1 {
+    font-family: 'Noto Serif KR', serif;
+    font-weight: 700;
+    font-size: clamp(1.7rem, 5vw, 2.35rem);
+    line-height: 1.4;
+    letter-spacing: -.01em;
+  }
+  .subtitle {
+    font-size: .95rem;
+    color: var(--ink-faint);
+    margin-top: .55rem;
+  }
+
+  .intro {
+    margin-top: 2.1rem;
+    font-size: .98rem;
+    color: var(--ink-soft);
+    max-width: 34rem;
+  }
+
+  /* ── EPIGRAPH ── */
+  .epigraph {
+    margin: 2.6rem 0 3.4rem;
+    padding-left: 1.3rem;
+    border-left: 2px solid var(--accent);
+  }
+  .epigraph p {
+    font-family: 'Noto Serif KR', serif;
+    font-style: italic;
+    font-size: 1.08rem;
+    color: var(--ink);
+    line-height: 1.75;
+  }
+  .epigraph cite {
+    display: block;
+    margin-top: .5rem;
+    font-style: normal;
+    font-size: .82rem;
+    color: var(--ink-faint);
+  }
+
+  /* ── QUESTIONS ── */
+  .questions {
+    margin-top: 2.2rem;
+  }
+  .q {
+    display: grid;
+    grid-template-columns: 2.6rem 1fr;
+    column-gap: 1.1rem;
+  }
+  .q + .q {
+    margin-top: 2.9rem;
+  }
+  .q-num {
+    font-family: 'Noto Serif KR', serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: var(--accent);
+    line-height: 1.3;
+  }
+  .q-num::before {
+    content: '';
+    display: block;
+    width: 1.15rem;
+    height: 2px;
+    background: var(--accent);
+    margin-bottom: .65rem;
+  }
+  .q-title {
+    font-family: 'Noto Serif KR', serif;
+    font-weight: 600;
+    font-size: 1.05rem;
+    line-height: 1.55;
+    color: var(--ink);
+  }
+  .q-body {
+    margin-top: .55rem;
+    font-size: .92rem;
+    color: var(--ink-soft);
+    line-height: 1.8;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    margin-top: 3.6rem;
+    padding-top: 1.3rem;
+    border-top: 1px solid var(--line);
+    font-size: .8rem;
+    color: var(--ink-faint);
+  }
+  footer .school {
+    color: var(--ink-soft);
+    font-weight: 500;
+  }
+  footer p + p { margin-top: .35rem; }
+
+  @media (max-width: 480px) {
+    .page { padding: 3.2rem 1.25rem 3.5rem; }
+    .q { grid-template-columns: 2.1rem 1fr; column-gap: .85rem; }
+    .q-num { font-size: 1.3rem; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="page">
+
+    <div class="meta">
+      <span><strong>경건훈련 II</strong></span>
+      <span>2026년 2학기 · 11주차</span>
+    </div>
+
+    <h1>우리 안의 탐욕</h1>
+    <p class="subtitle">Seven Deadly Sins · 제5과 탐욕</p>
+
+    <p class="intro">
+      아래 다섯 가지 질문을 가지고 소그룹으로 나누어 보십시오. 각자의 고민과 생각,
+      기도제목을 솔직하게 나누는 시간이 되기를 바랍니다. 나누기 어려운 부분은
+      나누지 않아도 됩니다.
+    </p>
+
+    <div class="epigraph">
+      <p>삼가 모든 탐심을 물리치라 사람의 생명이 그 소유의 넉넉한 데 있지 아니하니라.</p>
+      <cite>누가복음 12:15</cite>
+    </div>
+
+    <div class="questions">
+
+      <div class="q">
+        <div class="q-num">1</div>
+        <div>
+          <div class="q-title">진로와 사역에서 나의 탐욕을 위함인지 하나님의 영광을 위함인지 어떻게 구분할 수 있을까?</div>
+          <p class="q-body">진로, 사례, 사역지를 고민하던 때를 떠올려 보자. 같은 선택 앞에 두 마음이 함께 있었다면 무엇을 살펴야 할까?</p>
+        </div>
+      </div>
+
+      <div class="q">
+        <div class="q-num">2</div>
+        <div>
+          <div class="q-title">불안할 때 나는 가장 먼저 무엇을 붙잡는가?</div>
+          <p class="q-body">불안한 순간에 가장 먼저 손이 가는 것은 무엇인가? 그것이 내 마음의 안전이 되고 있지는 않은가?</p>
+        </div>
+      </div>
+
+      <div class="q">
+        <div class="q-num">3</div>
+        <div>
+          <div class="q-title">헌신한 것처럼 보이고 싶은 마음은 사역 현장에서 어떻게 나타나며, 우리는 어떻게 정직하게 설 수 있을까?</div>
+          <p class="q-body">사람의 칭찬과 나의 안전을 함께 붙잡으려는 마음을 어떻게 다룰 수 있을까?</p>
+        </div>
+      </div>
+
+      <div class="q">
+        <div class="q-num">4</div>
+        <div>
+          <div class="q-title">번영을 기대하며 신앙하는 성도에게 어떻게 말해 줄 수 있을까?</div>
+          <p class="q-body">믿음으로 구하면 복을 받는다는 기대로 교회에 나오는 성도를 상담이나 심방에서 만났다고 해 보자. 정죄하지 않으면서 실제로 건넬 수 있는 말은 무엇일까?</p>
+        </div>
+      </div>
+
+      <div class="q">
+        <div class="q-num">5</div>
+        <div>
+          <div class="q-title">내 소비와 선택을 어떻게 점검할 수 있을까?</div>
+          <p class="q-body">이번 주 붙들고 있는 것 하나를 의도적으로 흘려보낸다면 무엇이 될까? 소비와 욕망을 살피는 일은 어떤 모습이어야 할까?</p>
+        </div>
+      </div>
+
+    </div>
+
+    <footer>
+      <p class="school">백석대학교 신학대학원</p>
+      <p>경건훈련 II</p>
+    </footer>
+
+  </div>
+
+</body>
+</html>
