@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>신앙운동</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;700&family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+  :root {
+    color-scheme: light;
+    --bg: #ebe4d6;
+    --paper: #f8f3e8;
+    --ink: #2a2620;
+    --muted: #6b6457;
+    --line: #ddd3c0;
+    --accent: #1f3f7a;
+    --accent-soft: #ece6d6;
+    --gold: #9a7a2e;
+    --blue-fill: #e3e7ef;
+    --sand-fill: #ece5d6;
+    --sand-line: #a39577;
+    --sand-ink: #6b5d40;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+    word-break: keep-all;
+    padding-inline: 16px;
+    padding-block: 32px 64px;
+  }
+  .sheet {
+    max-width: 760px;
+    margin: 0 auto;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: clamp(24px, 5vw, 56px);
+  }
+  header.masthead {
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 20px;
+    margin-bottom: 28px;
+    display: grid;
+    gap: 6px;
+  }
+  .eyebrow {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+  }
+  h1 {
+    font-family: "Noto Serif KR", "Nanum Myeongjo", serif;
+    font-weight: 700;
+    font-size: clamp(28px, 5vw, 38px);
+    line-height: 1.3;
+    margin: 0;
+    text-wrap: balance;
+  }
+  .subtitle {
+    font-family: "Noto Serif KR", "Nanum Myeongjo", serif;
+    font-size: clamp(18px, 3.2vw, 21px);
+    font-weight: 500;
+    color: var(--accent);
+    margin: 0;
+  }
+  .source {
+    font-size: 14px;
+    color: var(--muted);
+    margin: 0;
+  }
+  .thesis {
+    background: var(--accent-soft);
+    border-radius: 4px;
+    padding: 18px 22px;
+    margin: 0 0 36px;
+  }
+  .thesis strong { color: var(--accent); }
+
+  h2 {
+    font-family: "Noto Serif KR", "Nanum Myeongjo", serif;
+    font-size: 22px;
+    font-weight: 700;
+    margin: 40px 0 16px;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    text-wrap: balance;
+  }
+  h2 .num {
+    font-size: 15px;
+    color: var(--gold);
+    font-family: "Noto Sans KR", sans-serif;
+    font-weight: 700;
+  }
+  p { margin: 0 0 12px; }
+  ul { margin: 0 0 12px; padding-left: 1.2em; display: grid; gap: 8px; }
+  li::marker { color: var(--accent); }
+  .lead { font-weight: 700; }
+  .ref { color: var(--muted); font-size: 14px; white-space: nowrap; }
+
+  h3 { font-size: 17px; font-weight: 700; margin: 24px 0 10px; color: var(--accent); }
+  .h2-ref { font-family: "Noto Sans KR", sans-serif; font-size: 14px; font-weight: 400; color: var(--muted); }
+
+  .verse {
+    margin: 0 0 24px;
+    border-left: 3px solid var(--gold);
+    padding: 4px 0 4px 18px;
+    display: grid;
+    gap: 6px;
+  }
+  .verse-label { font-size: 13px; font-weight: 700; letter-spacing: 0.08em; color: var(--gold); }
+  .verse p {
+    margin: 0;
+    font-family: "Noto Serif KR", "Nanum Myeongjo", serif;
+    font-size: 16.5px;
+    line-height: 1.85;
+  }
+  .verse cite { font-style: normal; font-size: 14px; color: var(--muted); }
+
+  /* 공통 기초 */
+  .found { margin: 16px 0 24px; display: grid; gap: 0; }
+  .f-roof {
+    background: var(--paper);
+    border: 2px solid var(--gold);
+    border-radius: 6px 6px 2px 2px;
+    padding: 10px 14px;
+    text-align: center;
+    display: grid;
+    gap: 0;
+  }
+  .f-roof b { font-family: "Noto Serif KR", "Nanum Myeongjo", serif; font-size: 18px; color: var(--gold); }
+  .f-roof span { font-size: 13.5px; color: var(--muted); }
+  .f-pillars {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 6px;
+    padding: 6px 6px;
+  }
+  .f-pillars span {
+    background: var(--blue-fill);
+    border: 1.5px solid var(--accent);
+    border-radius: 3px;
+    padding: 14px 4px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1.4;
+    display: grid;
+    place-items: center;
+  }
+  .f-base {
+    background: var(--accent);
+    color: var(--paper);
+    border-radius: 2px 2px 6px 6px;
+    padding: 12px 14px;
+    text-align: center;
+    display: grid;
+    gap: 2px;
+  }
+  .f-base b { font-family: "Noto Serif KR", "Nanum Myeongjo", serif; font-size: 19px; }
+  .f-base span { font-size: 14px; opacity: 0.9; }
+
+  /* 성경으로 돌아간다는 것 */
+  .ret {
+    margin: 16px 0 24px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 16px;
+    display: grid;
+    gap: 12px;
+  }
+  .ret-title {
+    font-family: "Noto Serif KR", "Nanum Myeongjo", serif;
+    font-weight: 700;
+    font-size: 17px;
+    color: var(--accent);
+    text-align: center;
+  }
+  .ret-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .ret-card {
+    background: var(--blue-fill);
+    border: 1.5px solid var(--accent);
+    border-radius: 6px;
+    padding: 12px 14px;
+    display: grid;
+    gap: 4px;
+    align-content: start;
+  }
+  .ret-no { font-size: 13px; font-weight: 700; letter-spacing: 0.06em; color: var(--gold); }
+  .ret-card b { font-family: "Noto Serif KR", "Nanum Myeongjo", serif; font-size: 16.5px; color: var(--accent); line-height: 1.45; }
+  .ret-card p { margin: 0; font-size: 14.5px; line-height: 1.7; }
+  .ret-card .ref { white-space: normal; }
+  .ret-foot {
+    margin: 0;
+    border-top: 1px solid var(--line);
+    padding-top: 12px;
+    font-family: "Noto Serif KR", "Nanum Myeongjo", serif;
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--ink);
+  }
+
+  .deeds { list-style: none; padding: 0; display: grid; gap: 0; border: 1px solid var(--line); border-radius: 4px; }
+  .deeds li {
+    display: grid;
+    grid-template-columns: 11em 1fr;
+    gap: 12px;
+    padding: 10px 14px;
+    border-top: 1px solid var(--line);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  .deeds li:first-child { border-top: 0; }
+  .deeds b { color: var(--accent); }
+
+  @media (max-width: 640px) {
+    .f-pillars { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 480px) {
+    .f-pillars { grid-template-columns: repeat(2, 1fr); }
+    .f-pillars span { padding: 10px 4px; }
+  }
+  @media (max-width: 560px) {
+    .ret-grid { grid-template-columns: 1fr; }
+    .deeds li { grid-template-columns: 1fr; gap: 2px; }
+  }
+
+  .discuss {
+    margin-top: 44px;
+    border-top: 1px solid var(--line);
+    padding-top: 8px;
+  }
+  .discuss ol {
+    margin: 0;
+    padding-left: 1.4em;
+    display: grid;
+    gap: 14px;
+  }
+  .discuss li::marker { color: var(--gold); font-weight: 700; }
+  footer {
+    max-width: 760px;
+    margin: 20px auto 0;
+    font-size: 13px;
+    color: var(--muted);
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+<main class="sheet">
+  <header class="masthead">
+    <span class="eyebrow">백석대학교 교수 콜로키움 연수 · 2026년 2학기</span>
+    <h1>신앙운동</h1>
+    <p class="subtitle">성경이 답이다</p>
+    <p class="source">『개혁주의생명신학』(표준교과서) 7대 실천운동 ① “신앙운동” 요약</p>
+  </header>
+
+  <blockquote class="verse">
+    <span class="verse-label">핵심 성경구절</span>
+    <p>“또 어려서부터 성경을 알았나니 성경은 능히 너로 하여금 그리스도 예수 안에 있는 믿음으로 말미암아 구원에 이르는 지혜가 있게 하느니라 모든 성경은 하나님의 감동으로 된 것으로 교훈과 책망과 바르게 함과 의로 교육하기에 유익하니 이는 하나님의 사람으로 온전하게 하며 모든 선한 일을 행할 능력을 갖추게 하려 함이라”</p>
+    <cite>딤후 3:15-17</cite>
+  </blockquote>
+
+  <p class="thesis"><strong>핵심 명제.</strong> 「개혁주의생명신학 선언문」은 “개혁주의생명신학은 성경만이 우리의 신앙과 삶의 유일한 표준임을 믿고, 개혁주의신학을 계승하는 신앙운동이다”라고 말합니다. 곧 <strong>“오직 성경만이 우리의 답이다!”</strong>라는 주장입니다.</p>
+
+  <p>성경이 모든 종류의 문제에 답을 주지는 않지만, 구원에 관하여 알아야 할 충분한 지식을 주고, 직접 언급하지 않는 것들에 대해서도 기본 원리와 지침을 줍니다. 성경은 성령의 감동을 받은 사람들이 기록했으므로 인간의 이성만으로 이해하려 해서는 안 되며, 성령의 도우심을 간구하며 읽어야 바르게 이해할 수 있습니다. <span class="ref">(벧후 1:20-21)</span></p>
+
+  <section>
+    <h2>신앙운동의 정의</h2>
+    <ul>
+      <li>웨스트민스터 신앙고백 제1장 2절에 따르면, 성경은 하나님의 영감으로 주어진 것으로 신앙과 삶의 법칙입니다. <span class="ref">(계 22:18-19; 딤후 3:16)</span></li>
+      <li>실천운동의 범위는 영적 생명 회복부터 물질적 나눔까지 대단히 넓습니다. 그 운동들이 하나님의 영광이라는 공통의 목표를 향해 일관되게 나아가려면 하나의 기초가 필요합니다. 그 유일한 기초가 성경이며, <span class="lead">모든 실천운동의 공통된 기초는 “성경이 답이다!”</span>입니다. 세상의 다른 어떤 것도 실천의 기초가 되어서는 안 됩니다. <span class="ref">(수 1:8)</span></li>
+    </ul>
+
+    <div class="found" role="figure" aria-label="성경이 답이다: 일곱 실천운동의 공통된 기초">
+      <div class="f-roof"><b>하나님의 영광</b><span>모든 실천운동의 공통 목표</span></div>
+      <div class="f-pillars">
+        <span>신학회복운동</span>
+        <span>회개용서운동</span>
+        <span>영적생명운동</span>
+        <span>하나님나라운동</span>
+        <span>나눔운동</span>
+        <span>기도성령운동</span>
+      </div>
+      <div class="f-base"><b>신앙운동 · 성경이 답이다</b><span>모든 실천운동이 서 있는 공통의 유일한 기초</span></div>
+    </div>
+
+    <ul>
+      <li>성경이 신앙과 삶의 유일한 표준인 이유는 성경 66권이 하나님의 말씀이기 때문입니다. 성경을 통하지 않고는 삼위일체 하나님이나 십자가 구원의 도리를 알 수 없습니다.</li>
+      <li>다원화된 시대에 복음의 유일성과 절대성이 교회 안에서도 도전받고 있기에, 성경이 유일한 표준이라는 주장은 어느 때보다 절실합니다.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>현재 교회와 기독교인들의 문제점</h2>
+    <ul>
+      <li>한국교회는 세계 선교 역사상 유례없는 부흥을 이루었지만, 지금은 중병에 걸린 환자처럼 신음하고 있습니다. 깨어 있지 못하면 서구 교회처럼 큰 위기를 맞을 수 있습니다.</li>
+      <li>백석학원은 2010년 5월 선언문을 공포한 이후 개혁주의생명신학을 실천해 왔습니다. 이것은 새로운 신학이 아니라 16세기 종교개혁자들의 가르침에 따라 개혁주의신학을 회복하고 실천하자는 신앙운동입니다.</li>
+      <li>개혁주의신학은 가장 성경적이고 바른 신학입니다. 그런데도 한국교회가 지탄받는 것은 그 가르침대로 살지 못했기 때문, 곧 그 안에 그리스도의 생명이 없기 때문입니다. <span class="lead">아무리 좋은 신학을 가졌어도 그 안에 예수의 생명이 없으면 교회와 세상을 변화시킬 수 없습니다.</span> 교회가 생명을 회복하는 길은 오직 성경으로 돌아가는 것입니다.</li>
+    </ul>
+
+    <div class="ret" role="figure" aria-label="성경으로 돌아간다는 것의 네 가지 의미">
+      <div class="ret-title">성경으로 돌아간다는 것</div>
+      <div class="ret-grid">
+        <div class="ret-card">
+          <span class="ret-no">첫째</span>
+          <b>읽고 묵상하는 생활의 습관화</b>
+          <p>시편 기자는 말씀을 순금보다, 송이꿀보다 사모했습니다. <span class="ref">(시 1:1-2; 19:9-10)</span></p>
+        </div>
+        <div class="ret-card">
+          <span class="ret-no">둘째</span>
+          <b>성령의 조명 아래 읽고 해석함</b>
+          <p>성경의 저자도, 바르게 해석해 주시는 분도 성령이십니다. 마귀도 성경 구절을 들어 예수님을 시험했고, 자유주의 신학자들은 이성으로 성경을 비평하여 그 권위를 무너뜨렸습니다. 보수적인 신학자들도 성령의 조명을 간구하며 무릎 꿇지 않는다면 크게 다르지 않습니다. <span class="ref">(고후 4:6)</span></p>
+        </div>
+        <div class="ret-card">
+          <span class="ret-no">셋째</span>
+          <b>예수 그리스도의 생명을 받음</b>
+          <p>예수님 안에 거하는 사람은 그분의 말씀 안에 거하는 사람이며, 그 말씀의 핵심은 사랑입니다. 그리스도의 생명을 가진 사람은 성령의 열매를 맺으며, 먼저 자신을 말씀과 기도로 개혁하고, 교회를 새롭게 하며, 세상을 변화시킵니다. <span class="ref">(요 6:63; 14:6; 15:7, 12; 갈 5:22-23)</span></p>
+        </div>
+        <div class="ret-card">
+          <span class="ret-no">넷째</span>
+          <b>말씀에 순종함</b>
+          <p>‘믿어 순종하게’는 원래 ‘믿음의 순종’이라는 뜻입니다. 믿음과 순종은 동전의 양면입니다. 이신칭의는 지적 동의만으로 구원받는다는 뜻이 아니라, 순종하는 믿음이 참된 믿음이라는 뜻입니다. <span class="ref">(요 14:15; 롬 1:5; 약 2:22)</span></p>
+        </div>
+      </div>
+      <p class="ret-foot">“설교자가 하나님의 말씀을 쪼개는 것이 아니라, 하나님의 말씀이 설교자를 쪼개야 합니다. 하나님의 말씀 앞에서 자아가 깨어지는 경험을 하지 못한 목사와 하나님의 말씀 때문에 가슴을 치며 통곡해 보지 못한 신학자는 진정한 하나님의 종이 될 수 없습니다.”</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>성경적 해법 <span class="h2-ref">딤후 3:15-17</span></h2>
+    <ul>
+      <li><span class="lead">평생 성경으로부터 배워야 한다.</span> 디모데는 어려서부터 성경을 배웠습니다. 성경을 깨닫는 것이 구원에 이르는 지혜입니다. 어떤 제도나 전통도 성경보다 큰 권위를 가질 수 없습니다. 칼빈의 말대로 교회는 “성경의 자궁에서 태어난 성경의 피조물”입니다. 하나님께서 그리스도를 통해 구원을 완성하셨기에 성경계시도 완성되었고, 성경 이상의 권위를 갖는 구원계시는 없습니다. 성경은 신자의 신앙과 삶의 유일한 법칙이며, <span class="lead">일반은총에 속한 모든 것의 의미를 밝혀 주는 최고의 권위</span>입니다.</li>
+      <li><span class="lead">성경이 하나님의 감동으로 기록되었음을 믿어야 한다.</span> 성경은 인간의 철학이나 사상을 기록한 책이 아니라 죄인을 구원으로 인도하는 생명의 책입니다. 우리는 유기적 영감을 인정합니다. 기록자의 경험, 지식, 성품, 기질, 배경, 재능 등이 두루 반영되어 있기에 성경이 친숙하게 다가옵니다. 사도와 초대교회도 시편을 다윗의 말이 아니라 성령의 말씀으로 인용했습니다. <span class="ref">(행 1:16; 4:25; 벧후 1:21; 히 3:7-11)</span></li>
+      <li><span class="lead">성경이 교육에 유익함을 알아야 한다.</span> 성경은 바른 삶을 교훈하고, 하나님의 뜻을 거스르는 일을 책망하며, 허물과 죄를 바르게 하고, 십자가의 의를 따라 살도록 훈련하여 선한 일을 행할 능력을 갖추게 합니다. 만물보다 거짓되고 부패한 인간의 마음을 새 사람으로 변화시키는 것은 오직 성경뿐입니다. <span class="ref">(엡 2:10; 렘 17:9; 히 4:12)</span></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>실천 사례</h2>
+    <ul>
+      <li>한국교회가 크게 부흥할 때는 성경을 열심히 공부하고 가르칠 때였습니다. 이삼십 년 전만 해도 봄가을마다 성경퀴즈·암송·다독대회가 열렸습니다.</li>
+      <li>그때와 지금 달라진 것은 사회적 상황이 아니라 <span class="lead">우리 문제의 답이 무엇인가에 대한 생각</span>입니다. 옛 성도들은 더 어려운 형편에서도 말씀이 답이라고 믿었지만, 지금 교인들은 “공부가 답이다”, “출세가 답이다”라며 자녀에게 성경공부는 시키지 않고 입시공부만 시킵니다.</li>
+      <li>세상을 바꿀 힘과 지혜와 지식은 하나님의 말씀인 성경 가운데 있습니다. 주의 말씀을 사랑하는 것은 축복의 길이요, 말씀을 버리는 것은 멸망의 길입니다. <span class="ref">(시 119:165)</span></li>
+    </ul>
+
+    <h3>백석학원의 실천</h3>
+    <ul class="deeds">
+      <li><b>신입생 성경 배부</b><span>백석정신아카데미가 2011년부터 매년 모든 신입생에게 찬송가 합본 성경을 배부합니다.</span></li>
+      <li><b>『생명양식』 큐티집과 앱</b><span>백석정신아카데미가 2006년 『매일양식』을 발간했고, 2015년 7월부터 『생명양식』으로 개칭했습니다. 하루 세 번 기도를 돕는 큐티집으로, 신학전공 교수들이 본문 해설을 쓰며 무료 앱도 제공합니다.</span></li>
+      <li><b>성경 중심 커리큘럼</b><span>2016년 3월부터 기독교학부 신학전공 교과목을 성경교육 중심으로 개편했습니다.</span></li>
+      <li><b>‘성경 읽기와 필사’</b><span>신학대학원 3년간 12학점을 이수하며, ‘성경 강해와 설교’ 과목도 다수 운영합니다. 평생교육신학원도 매 학기 ‘성경 읽기와 필사’를 개설합니다.</span></li>
+      <li><b>『개혁주의생명신학으로 세상 읽기』</b><span>교직원과 학생을 대상으로 소책자를 정기 발행합니다.</span></li>
+    </ul>
+    <p>성경은 백석학원의 최고의 가치입니다. 100년, 200년 후에도 진리의 기둥과 터가 되려면 성경 진리의 토대 위에 견고히 서야 합니다.</p>
+  </section>
+
+  <section class="discuss">
+    <h2>토론을 위한 질문</h2>
+    <ol>
+      <li>“성경이 답이다”라는 주장을 자신의 삶 속에서 경험했던 일이 있으면 나누어 봅시다.</li>
+      <li>하나님의 말씀인 성경을 바르게 이해하기 위해 필요한 요소들은 무엇인지 토론해 봅시다.</li>
+      <li>신앙운동을 실천할 수 있는 여러 가지 방법들에 대해 나누어 봅시다.</li>
+    </ol>
+  </section>
+</main>
+<footer>출처: 『개혁주의생명신학』 III장 “개혁주의생명신학 7대 실천운동” 중 1. “신앙운동: 성경이 답이다”</footer>
+</body>
+</html>
