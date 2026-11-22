@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>신학회복운동</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;700&family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+  :root {
+    color-scheme: light;
+    --bg: #ebe4d6;
+    --paper: #f8f3e8;
+    --ink: #2a2620;
+    --muted: #6b6457;
+    --line: #ddd3c0;
+    --accent: #1f3f7a;
+    --accent-soft: #ece6d6;
+    --gold: #9a7a2e;
+    --blue-fill: #e3e7ef;
+    --sand-fill: #ece5d6;
+    --sand-line: #a39577;
+    --sand-ink: #6b5d40;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+    word-break: keep-all;
+    padding-inline: 16px;
+    padding-block: 32px 64px;
+  }
+  .sheet {
+    max-width: 760px;
+    margin: 0 auto;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: clamp(24px, 5vw, 56px);
+  }
+  header.masthead {
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 20px;
+    margin-bottom: 28px;
+    display: grid;
+    gap: 6px;
+  }
+  .eyebrow {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+  }
+  h1 {
+    font-family: "Noto Serif KR", "Nanum Myeongjo", serif;
+    font-weight: 700;
+    font-size: clamp(28px, 5vw, 38px);
+    line-height: 1.3;
+    margin: 0;
+    text-wrap: balance;
+  }
+  .subtitle {
+    font-family: "Noto Serif KR", "Nanum Myeongjo", serif;
+    font-size: clamp(18px, 3.2vw, 21px);
+    font-weight: 500;
+    color: var(--accent);
+    margin: 0;
+  }
+  .source {
+    font-size: 14px;
+    color: var(--muted);
+    margin: 0;
+  }
+  .thesis {
+    background: var(--accent-soft);
+    border-radius: 4px;
+    padding: 18px 22px;
+    margin: 0 0 36px;
+  }
+  .thesis strong { color: var(--accent); }
+
+  h2 {
+    font-family: "Noto Serif KR", "Nanum Myeongjo", serif;
+    font-size: 22px;
+    font-weight: 700;
+    margin: 40px 0 16px;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    text-wrap: balance;
+  }
+  h2 .num {
+    font-size: 15px;
+    color: var(--gold);
+    font-family: "Noto Sans KR", sans-serif;
+    font-weight: 700;
+  }
+  p { margin: 0 0 12px; }
+  ul { margin: 0 0 12px; padding-left: 1.2em; display: grid; gap: 8px; }
+  li::marker { color: var(--accent); }
+  .lead { font-weight: 700; }
+  .ref { color: var(--muted); font-size: 14px; white-space: nowrap; }
+
+  h3 { font-size: 17px; font-weight: 700; margin: 24px 0 10px; color: var(--accent); }
+  .h2-ref { font-family: "Noto Sans KR", sans-serif; font-size: 14px; font-weight: 400; color: var(--muted); }
+
+  .verse {
+    margin: 0 0 24px;
+    border-left: 3px solid var(--gold);
+    padding: 4px 0 4px 18px;
+    display: grid;
+    gap: 6px;
+  }
+  .verse-label { font-size: 13px; font-weight: 700; letter-spacing: 0.08em; color: var(--gold); }
+  .verse p {
+    margin: 0;
+    font-family: "Noto Serif KR", "Nanum Myeongjo", serif;
+    font-size: 16.5px;
+    line-height: 1.85;
+  }
+  .verse cite { font-style: normal; font-size: 14px; color: var(--muted); }
+
+  /* 세 원인 */
+  .causes { list-style: none; padding: 0; margin: 12px 0 20px; display: grid; gap: 10px; }
+  .causes > li {
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--accent);
+    border-radius: 4px;
+    padding: 12px 16px;
+    display: grid;
+    gap: 6px;
+  }
+  .causes .c-no { font-size: 12.5px; font-weight: 700; letter-spacing: 0.08em; color: var(--gold); }
+  .causes b { font-family: "Noto Serif KR", "Nanum Myeongjo", serif; font-size: 18px; color: var(--accent); }
+  .causes p { margin: 0; font-size: 15.5px; }
+  .causes ul { margin: 4px 0 0; font-size: 15px; }
+
+  /* 신학의 주체 */
+  .subj { margin: 20px 0 24px; display: grid; gap: 0; }
+  .subj-box { border-radius: 6px; padding: 14px 16px; display: grid; gap: 8px; }
+  .subj-box.god { background: var(--blue-fill); border: 1.5px solid var(--accent); }
+  .subj-box.man { background: var(--sand-fill); border: 1.5px dashed var(--sand-line); }
+  .subj-name { font-family: "Noto Serif KR", "Nanum Myeongjo", serif; font-weight: 700; font-size: 18px; }
+  .god .subj-name { color: var(--accent); }
+  .man .subj-name { color: var(--sand-ink); }
+  .subj-box dl { margin: 0; display: grid; gap: 6px; }
+  .subj-box dl > div { display: grid; grid-template-columns: 4.2em 1fr; gap: 10px; align-items: baseline; }
+  .subj-box dt { font-size: 13px; font-weight: 700; letter-spacing: 0.06em; color: var(--gold); }
+  .subj-box dd { margin: 0; font-size: 15px; line-height: 1.65; }
+  .glyphs { font-family: "Noto Serif KR", "Nanum Myeongjo", serif; font-size: 19px; margin-right: 4px; white-space: nowrap; }
+  .glyphs .fade { color: var(--sand-line); opacity: 0.45; text-decoration: line-through; }
+  .glyphs .keep { color: var(--sand-ink); font-weight: 700; }
+  .subj-axis { display: grid; place-items: center; height: 52px; position: relative; }
+  .subj-axis::before { content: ""; position: absolute; left: 50%; top: 0; bottom: 0; border-left: 2px solid var(--gold); }
+  .subj-axis span {
+    position: relative;
+    background: var(--paper);
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    border-radius: 999px;
+    padding: 2px 14px;
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  /* 교수에서 학생으로 */
+  .flow { margin: 16px 0 24px; border: 1px solid var(--line); border-radius: 6px; padding: 16px; display: grid; gap: 10px; }
+  .flow-title { font-family: "Noto Serif KR", "Nanum Myeongjo", serif; font-weight: 700; font-size: 17px; color: var(--accent); text-align: center; text-wrap: balance; }
+  .flow-grid { display: grid; grid-template-columns: 1fr 36px 1fr; gap: 8px 0; align-items: stretch; }
+  .flow-head { text-align: center; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; color: var(--muted); }
+  .flow-cell {
+    border: 1.5px solid var(--line);
+    background: var(--paper);
+    border-radius: 6px;
+    padding: 10px 12px;
+    text-align: center;
+    font-size: 15px;
+    color: var(--muted);
+    display: grid;
+    align-content: center;
+    gap: 2px;
+  }
+  .flow-cell small { font-size: 13px; font-weight: 500; }
+  .flow-cell.spirit { background: var(--accent); border-color: var(--accent); color: var(--paper); font-weight: 700; }
+  .flow-arrow { display: grid; place-items: center; color: var(--line); font-weight: 700; font-size: 20px; }
+  .flow-arrow.spirit { color: var(--gold); }
+  .flow-foot { margin: 0; text-align: center; font-size: 14.5px; color: var(--ink); }
+
+  .deeds { list-style: none; padding: 0; display: grid; gap: 0; border: 1px solid var(--line); border-radius: 4px; }
+  .deeds li {
+    display: grid;
+    grid-template-columns: 11em 1fr;
+    gap: 12px;
+    padding: 10px 14px;
+    border-top: 1px solid var(--line);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  .deeds li:first-child { border-top: 0; }
+  .deeds b { color: var(--accent); }
+
+  @media (max-width: 640px) {
+  }
+  @media (max-width: 480px) {
+  }
+  @media (max-width: 560px) {
+    .flow-grid { grid-template-columns: 1fr 28px 1fr; }
+    .flow-cell { font-size: 14px; padding: 9px 8px; }
+    .deeds li { grid-template-columns: 1fr; gap: 2px; }
+  }
+
+  .discuss {
+    margin-top: 44px;
+    border-top: 1px solid var(--line);
+    padding-top: 8px;
+  }
+  .discuss ol {
+    margin: 0;
+    padding-left: 1.4em;
+    display: grid;
+    gap: 14px;
+  }
+  .discuss li::marker { color: var(--gold); font-weight: 700; }
+  footer {
+    max-width: 760px;
+    margin: 20px auto 0;
+    font-size: 13px;
+    color: var(--muted);
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+<main class="sheet">
+  <header class="masthead">
+    <span class="eyebrow">백석대학교 교수 콜로키움 연수 · 2026년 2학기</span>
+    <h1>신학회복운동</h1>
+    <p class="subtitle">신학은 학문이 아니다</p>
+    <p class="source">『개혁주의생명신학』(표준교과서) 7대 실천운동 ② “신학회복운동” 요약</p>
+  </header>
+
+  <blockquote class="verse">
+    <span class="verse-label">핵심 성경구절</span>
+    <p>“영생은 곧 유일하신 하나님과 그의 보내신 자 예수 그리스도를 아는 것이니이다”</p>
+    <cite>요 17:3</cite>
+  </blockquote>
+
+  <p class="thesis"><strong>핵심 명제.</strong> 신학회복운동은 “사변화된 신학을 반성하고, 성경으로 돌아가기 위하여, <strong>신학은 학문이 아니라 예수 그리스도의 생명의 복음임을 고백하는 운동</strong>”입니다. 신학은 하나님과 예수 그리스도를 아는 것이며, 하나님을 아는 것은 곧 영원한 생명을 아는 것입니다. 하나님을 아는 것이 우리로 영생을 얻게 하고, 그 영생을 누리며 살게 합니다.</p>
+
+  <p>20세기 초반까지 기독교는 서양의 종교였지만, 이제는 아시아와 아프리카에서 놀랍게 부흥하고 있습니다. 역사와 전통을 자랑하던 서구 기독교의 몰락은 많은 것을 생각하게 하며, 한국교회도 그 전철을 따라가고 있는 것 같습니다.</p>
+
+  <section>
+    <h2>신학회복운동의 정의</h2>
+    <ul>
+      <li>신학은 하나님을 알게 하여 심령 가운데 영적 생명을 더욱 풍성히 얻고 열매를 맺게 하는 것입니다. 참된 신학은 하나님과 그분이 행하신 일을 머리가 아니라 <span class="lead">인격적으로 아는 살아 있는 지식</span>입니다. 신학이 발전할수록 교회가 문을 닫고, 신학생이 목회를 기피하며, 신학교와 교회가 분쟁에 휘말린다면 참된 신학이 아닙니다. <span class="ref">(요 10:10)</span></li>
+      <li>신학 전문가를 자처해도 심령에 그리스도의 생명이 없다면 진정한 신학자가 아닙니다. 그 생명이 삶을 인도하지 않는다면 하나님을 모르는 사람일 뿐이며, 그 생명을 전하지 못한다면 종교를 연구하는 학자에 불과합니다. 하나님을 잘 아는 사람은 하나님을 인격적으로 체험하고 사랑하며 순종하는 사람입니다.</li>
+      <li>학문은 성경이 영적 생명을 살리는 하나님의 말씀으로 역사하도록 돕는 <span class="lead">수단</span>일 뿐입니다. 학문이 구원을 줄 수는 없으며, 구원은 오직 하나님의 말씀으로 이루어집니다. 신학회복운동은 신학의 말씀화, 신학의 생명화를 강조합니다.</li>
+      <li>신학을 가르치고 배우는 것은 생명을 살리고, 교회를 살리며, 세상을 살려서 오직 하나님께 영광을 돌리기 위한 것입니다(soli Deo gloria). 신학교육은 이론에 머물지 않고, 생명의 역사를 이루는 목회자를 배출해야 합니다.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>현재 교회와 기독교인들의 문제점</h2>
+    <p>서구 기독교의 몰락과 한국교회의 쇠퇴에는 세 가지 주된 원인이 있습니다.</p>
+
+    <ol class="causes">
+      <li>
+        <span class="c-no">원인 1</span>
+        <b>사변화된 신학</b>
+        <p>신학의 발전이 곧 교회의 부흥으로 이어지지 않습니다. 저자는 방송설교에서 한 신약신학자가 “바울이 이혼했다”고 말하는 것을 들었는데, 진지한 학자들 사이에서도 받아들여지지 않는 사변적 주장으로서 교회에 도움이 되기는커녕 신앙적으로 위험합니다.</p>
+        <p>원래 학문이 아니었던 신학은 신앙과 영성을 분리한 중세 스콜라 신학과 계몽주의를 거치며 학문화되었습니다. 신학교육의 주도권이 세속 대학으로 넘어가면서 신학은 교회와 무관한 학문이 되었고, 여러 분과로 파편화되면서 말씀과 기도로 형성되는 영성에 대한 관심이 사라졌습니다. 이런 신학 서적으로 머리만 키우는 성도도 늘고 있습니다. 가슴으로, 무릎으로 신학하는 사람이 더 많아져야 합니다.</p>
+      </li>
+      <li>
+        <span class="c-no">원인 2</span>
+        <b>성경에서 떠난 신학</b>
+        <p>성경은 무오하지만, 성경에서 추론한 신학 체계에는 인간의 부패한 죄성이 개입하므로 오류가 있을 수 있습니다. 신학자는 저마다 시대의 문제에 답하려고 다른 관점에서 성경을 읽기에, 그 교의는 성경에서 나왔어도 절대적 진리가 아닙니다. 절대적 진리는 성경뿐이며, 신학은 끊임없이 의식적으로 성경으로 돌아가야 합니다. 그렇지 않으면 인간적 학문으로 전락합니다. <span class="ref">(고전 13:12)</span></p>
+      </li>
+      <li>
+        <span class="c-no">원인 3</span>
+        <b>학문으로서의 신학</b>
+        <p>신학도 지식을 체계화하여 가르치므로 일종의 학문일 수 있습니다. 그러나 신학은 학문적인 방법을 사용하지만 <span class="lead">학문으로만 끝나서는 안 된다</span>는 의미에서 “신학은 학문이 아니다”라고 말합니다. 창조주 하나님은 피조물인 인간 이성의 분석과 평가 대상이 될 수 없고, 성령을 통해 계시하실 때에만 알 수 있습니다. <span class="ref">(벧후 1:20-21)</span></p>
+        <ul>
+          <li>‘신학’(theologia)은 플라톤과 아리스토텔레스가 ‘신에 대한 이성적 추론’이라는 뜻으로 쓰던 말로, 성경에는 없습니다. 성경의 ‘하나님을 아는 지식’은 하나님을 사랑하고 경외하는 경건을 포함합니다. 그래서 교부들은 이 말을 주저했고, 동방교회는 300년, 서방교회는 700년이 지나서야 기독교 진리를 ‘신학’이라 불렀습니다.</li>
+          <li>칼빈은 ‘신학’보다 ‘가르침’, ‘교리’를 선호했습니다. 루터는 십자가를 떠난 신학을 ‘영광의 신학’이라 비판하며, 신학을 “고난으로 가득 찬 체험의 학문”이라 했습니다. 기독교 역사에서 신학은 하나님을 향한 경건 자체였습니다.</li>
+        </ul>
+      </li>
+    </ol>
+
+    <div class="subj" role="figure" aria-label="신학의 주체가 하나님인가 인간인가에 따른 두 이해">
+      <div class="subj-box god">
+        <div class="subj-head"><span class="subj-name">“하나님께서 말씀하신다”</span></div>
+        <dl>
+          <div><dt>주체</dt><dd>하나님</dd></div>
+          <div><dt>방법</dt><dd>성령과 믿음, 곧 하나님의 은총</dd></div>
+          <div><dt>신학은</dt><dd>하나님을 향한 경건 자체, 생명의 복음</dd></div>
+        </dl>
+      </div>
+      <div class="subj-axis" aria-hidden="true"><span>신학의 주체는 누구인가</span></div>
+      <div class="subj-box man">
+        <div class="subj-head"><span class="subj-name">“인간이 하나님에 대해 말한다”</span></div>
+        <dl>
+          <div><dt>주체</dt><dd>인간</dd></div>
+          <div><dt>방법</dt><dd>인간의 이성과 경험</dd></div>
+          <div><dt>신학은</dt><dd>학문. <span class="glyphs"><span class="fade">神</span><span class="keep">學</span></span> 학(學)만 남고 신(神)은 떨어져 나갑니다.</dd></div>
+        </dl>
+      </div>
+    </div>
+
+    <ul>
+      <li>평양 대부흥으로 성령의 역사를 뜨겁게 체험한 한국교회가 선교 130여 년 만에 신앙의 열정을 잃었습니다. 교회는 하나님을 물질과 명예에, 신학교는 하나님을 학문에 가두었기 때문입니다. 한국교회 침체의 원인은 <span class="lead">성경보다 학문을 앞세운 신학교육</span>에 있습니다.</li>
+      <li>교육은 백년대계입니다. 신학자들이 학문에 사로잡혀 신학생들의 영혼이 메말라 가고 있습니다. 하나님을 자기 학문의 틀에 가두려 한 교만을 회개하지 않으면 신학교육의 본질이 무너지고, 신학교육이 무너지면 한국교회 강단이 무너집니다.</li>
+      <li>이제라도 저자를 포함한 신학자들이 먼저 영적 생명력을 회복해야 합니다. 신학교에서 성령운동, 기도운동, 회개운동으로 경건을 훈련하고, 십자가와 부활 신앙을 고백하고 체험하는 영적 지도자를 길러야 합니다. 학문으로 냉랭해진 마음이 성령으로 다시 뜨거워지지 않으면 한국교회는 희망이 없습니다.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>성경적 해법</h2>
+    <ul>
+      <li>학문에 그치는 신학은 인간에게서 시작해 인간으로 끝나고, 인간의 자랑거리가 되어 결국 복음을 부끄러워하게 됩니다. <span class="lead">신학은 학문으로 시작하지만 복음으로, 하나님의 말씀으로 끝나야 합니다.</span></li>
+      <li>말씀이신 예수님 안에 생명이 있습니다. 생명을 전하지 않는 신학은 예수님을 전하는 신학이 아닙니다. 신학은 반드시 생명, 곧 예수님의 생명을 전해야 합니다. <span class="ref">(요 1:1-4)</span></li>
+    </ul>
+
+    <h3>1) 우리의 신학은 영으로 난 것이어야 한다 <span class="ref">(요 3:5-6)</span></h3>
+    <ul>
+      <li>니고데모는 오늘날로 말하면 신학교 교수였습니다. 율법과 성경을 잘 알았지만 육적으로만 알았기에 거듭남을 이해하지 못했습니다. 우리의 신학과 신학교육도 영적으로 살아 있어야 합니다.</li>
+      <li>신학 교수가 말씀과 기도와 믿음으로 성령의 역사를 경험해야 강의실에서 영적인 것을 전할 수 있습니다. 교수의 심령이 말씀과 성령의 역사로 <span class="lead">깨어지고 부서져야</span> 예수님의 생명이 흘러넘칩니다.</li>
+    </ul>
+
+    <div class="flow" role="figure" aria-label="교수에게서 나온 것이 학생의 같은 자리로 들어간다">
+      <div class="flow-title">교수에게서 나온 것은 학생의 같은 자리로 들어갑니다</div>
+      <div class="flow-grid">
+        <div class="flow-head">교수에게서</div><div></div><div class="flow-head">학생에게로</div>
+
+        <div class="flow-cell">교수의 머리</div>
+        <div class="flow-arrow" aria-hidden="true">→</div>
+        <div class="flow-cell">학생의 머리</div>
+
+        <div class="flow-cell">교수의 인간적인 마음</div>
+        <div class="flow-arrow" aria-hidden="true">→</div>
+        <div class="flow-cell">학생의 인간적인 마음</div>
+
+        <div class="flow-cell spirit">교수의 영적인 심령</div>
+        <div class="flow-arrow spirit" aria-hidden="true">→</div>
+        <div class="flow-cell spirit">학생의 영적인 심령<small>생명의 양식이 됩니다</small></div>
+      </div>
+      <p class="flow-foot">하나님 말씀을 가르치는 교수들이 먼저 영적 생명력을 지닌 영적 지도자가 되어야 합니다.</p>
+    </div>
+
+    <h3>2) 우리의 신학은 ‘생명을 살리는 신학’이어야 한다 <span class="ref">(요 6:63)</span></h3>
+    <ul>
+      <li>신학생도 성령의 역사에 전적으로 의지하며 공부하여, 예수님을 통해 더 풍성한 생명을 얻어야 합니다.</li>
+      <li>개혁주의생명신학은 예수님의 생명을 더 풍성히 받아 죽어 가는 세상에 주는 신학입니다. 영원한 생명이신 그리스도를 전하는 목회자의 사명은 이 세상 어느 일보다 귀하고 영광스럽습니다.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>실천 사례</h2>
+    <ul class="deeds">
+      <li><b>말씀과 기도를 우선하는 신학 수업</b><span>신학생이 공부를 열심히 하는 것은 본분이지만, 주객이 전도되어 영적 열정 없이 학문으로만 공부하면 심령이 황폐해집니다. 공부를 핑계로 경건을 게을리하면 목회자가 되어서도 그렇게 됩니다.</span></li>
+      <li><b>말씀의 사역자를 길러 내는 신학교육</b><span>교회 강단이 살아야 한국교회가 삽니다. 신학대학원 ‘성경강해와 설교’ 과목으로 교회 현장의 설교를 훈련합니다.</span></li>
+      <li><b>전도와 양육 중심의 현장 수업</b><span>교회는 영적 전투의 최전선입니다. 전도와 양육의 구체적 방법을 신학교에서 배울 수 있어야 합니다.</span></li>
+      <li><b>교회와 연계된 신학교육</b><span>신학자는 학문의 즐거움에 안주하지 말고 교회를 세우는 신학을 해야 합니다. 학생들이 처한 현장을 모르고서는 학생들을 바로 가르칠 수 없기에, 신학자의 교회 사역 참여를 권장합니다.</span></li>
+      <li><b>신학교수의 영성 계발</b><span>영성이 빠진 메마른 책과 논문은 신학생과 성도의 영적 성장에 도움이 되지 못합니다. 그런 글을 쓰려면 신학자 자신이 그리스도의 생명으로 충만해야 합니다. 신임 교수의 10일 금식기도, 기독교학부 교수들의 신학대학원 신입생 2주 영성수련회 동참, 방학 중 기도원 기도가 이를 위한 것입니다.</span></li>
+    </ul>
+  </section>
+
+  <section class="discuss">
+    <h2>토론을 위한 질문</h2>
+    <ol>
+      <li>신학이 발달한 서구의 교회들이 몰락하고 있는 현실이 우리에게 주는 교훈은 무엇인지 나누어 봅시다.</li>
+      <li>신학은 학문이 아니라는 말의 의미에 대해 이야기 해 봅시다. 신학과 학문의 관계에 대해 나누어 봅시다.</li>
+      <li>사변화된 신학, 성경을 떠난 신학, 학문으로의 신학의 구체적인 예들이 있다면 어떤 것들이 있을까요? 이런 것들이 교회에 어떤 영향을 주게 되는지 나누어 봅시다.</li>
+    </ol>
+  </section>
+</main>
+<footer>출처: 『개혁주의생명신학』 III장 “개혁주의생명신학 7대 실천운동” 중 2. “신학회복운동: 신학은 학문이 아니다”</footer>
+</body>
+</html>
